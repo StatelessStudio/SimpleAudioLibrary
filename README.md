@@ -12,21 +12,21 @@ Simple Audio Library is released under the [MIT license](http://opensource.org/l
 
 ## How to build
 
-Open your console and go to "[directory you copied this library in]/Code/".
+Open your console and go to "[directory of your copy]/Code/".
 Enter: make
 
 Now it'll compile the library on your machine and after it's finished it copies all header files into:
-"[directory you copied this library in]/Header/" and the bineary to
-"[directory you copied this library in]/Lib/".
+"[directory of your copy]/Header/" and the bineary to
+"[directory of your copy]/Lib/".
 
 So, to use this library in your application, all you have to do is to set the header path to:
-"[directory you copied this library in]/Header/" and the library path to:
-"[directory you copied this library in]/Lib/" and here we goes. You are ready to work with this libary.
+"[directory of your copy]/Header/" and the library path to:
+"[directory of your copy]/Lib/" and here we goes. You are ready to work with this libary.
 
 ## Code Example
 
 This is the simplest version to work with this library:
-<pre>
+```c++
 // include needed header files
 #include <SimpleAudioLib/CoreSystem.h>
 
@@ -46,4 +46,4 @@ delete sound;
 sound = NULL;
 
 SimpleAudioLib::CoreSystem::release();
-</pre>
+```
