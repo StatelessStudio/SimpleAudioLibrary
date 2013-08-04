@@ -10,18 +10,24 @@ WARNING: This is a pretty early version, keep in mind, that method/classes can b
 
 Simple Audio Library is released under the [MIT license](http://opensource.org/licenses/MIT).
 
+## Platform
+
+For now, it is only build for Mac OS X. But Windows and Linux will be also supported as soon as possible.
+
 ## How to build
 
-Open your console and go to "[directory of your copy]/Code/".
-Enter: make
+** Mac OS X **
+
+- Open your console and go to <i>"[directory of your copy]/Code/"</i>.
+- Enter: make
 
 Now it'll compile the library on your machine and after it's finished it copies all header files into:
-"[directory of your copy]/Header/" and the bineary to
-"[directory of your copy]/Lib/".
+<i>"[directory of your copy]/Header/"</i> and the bineary to
+<i>"[directory of your copy]/Lib/"</i>.
 
 So, to use this library in your application, all you have to do is to set the header path to:
-"[directory of your copy]/Header/" and the library path to:
-"[directory of your copy]/Lib/" and here we goes. You are ready to work with this libary.
+<i>"[directory of your copy]/Header/"</i> and the library path to:
+<i>"[directory of your copy]/Lib/"</i> and here we goes. You are ready to work with this libary.
 
 ## Code Example
 
