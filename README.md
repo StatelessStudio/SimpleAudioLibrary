@@ -4,7 +4,7 @@ Simple Audio Library v0.1.0
 This is a simple audio library using OpenAL. It was made with the thought in mind to have a pretty simple tool
 for playing sound/music in a game or another kind of application.
 
-WARNING: This is a pretty early version, keep in mind, that method/classes can be removed/renamed/changed at any time.
+<span style="font-weight: bold; text-decoration: underline;">WARNING:</span> This is a pretty early version, keep in mind, that method/classes can be removed/renamed/changed at any time.
 
 ## License
 
@@ -16,18 +16,18 @@ For now, it is only build for Mac OS X. But Windows and Linux will be also suppo
 
 ## How to build
 
-** Mac OS X **
+**Mac OS X**
 
-- Open your console and go to <i>"[directory of your copy]/Code/"</i>.
+- Open your console and go to <span style="text-decoration: underline;">"[directory of your copy]/Code/"</span>.
 - Enter: make
 
 Now it'll compile the library on your machine and after it's finished it copies all header files into:
-<i>"[directory of your copy]/Header/"</i> and the bineary to
-<i>"[directory of your copy]/Lib/"</i>.
+<span style="text-decoration: underline;">"[directory of your copy]/Header/"</span> and the bineary to
+<span style="text-decoration: underline;">"[directory of your copy]/Lib/"</span>.
 
 So, to use this library in your application, all you have to do is to set the header path to:
-<i>"[directory of your copy]/Header/"</i> and the library path to:
-<i>"[directory of your copy]/Lib/"</i> and here we goes. You are ready to work with this libary.
+<span style="text-decoration: underline;">"[directory of your copy]/Header/"</span> and the library path to:
+<span style="text-decoration: underline;">"[directory of your copy]/Lib/"</span> and here we goes. You are ready to work with this libary.
 
 ## Code Example
 
