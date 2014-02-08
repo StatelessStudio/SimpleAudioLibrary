@@ -7,7 +7,7 @@
  *	
  *	The MIT License (MIT)
  *
- *	Copyright (c) 2013 by Andy Liebke. All rights reserved.
+ *	Copyright (c) 2013-2014 by Andy Liebke. All rights reserved.
  *
  *	Permission is hereby granted, free of charge, to any person obtaining a copy
  * 	of this software and associated documentation files (the "Software"), to deal
@@ -33,7 +33,7 @@
  * @version		1.1.0 28-Jul-13
  * @version		1.2.0 02-Aug-13
  * @version		1.3.0 04-Aug-13
- * @copyright	Copyright (c) 2013 by Andy Liebke. All rights reserved. (http://andysmiles4games.com)
+ * @copyright	Copyright (c) 2013-2014 by Andy Liebke. All rights reserved. (http://andysmiles4games.com)
  */
 #include <SimpleAudioLib/CoreSystem.h>
 #include <stdlib.h>
