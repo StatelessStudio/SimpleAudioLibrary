@@ -1,5 +1,5 @@
 /**
- * Simple Audio Library - Core System Module.
+ * Simple Audio Library - Core System Model.
  *
  * This is the core class of this library. It is implemented as a singleton class.
  *
@@ -7,7 +7,7 @@
  *	
  *	The MIT License (MIT)
  *
- *	Copyright (c) 2013-2014 by Andy Liebke. All rights reserved.
+ *	Copyright (c) 2013-2016 by Andy Liebke. All rights reserved.
  *
  *	Permission is hereby granted, free of charge, to any person obtaining a copy
  * 	of this software and associated documentation files (the "Software"), to deal
@@ -29,10 +29,8 @@
  *
  * @author		Andy Liebke<coding@andysmiles4games.com>
  * @file		Header/SimpleAudioLib/CoreSystem.h
- * @version		1.0.0 27-Jul-13
- * @version		1.1.0 28-Jul-13
- * @version		1.2.0 04-Aug-13
- * @copyright	Copyright (c) 2013-2014 by Andy Liebke. All rights reserved. (http://andysmiles4games.com)
+ * @version		1.2.1 01-Jan-16
+ * @copyright	Copyright (c) 2013-2016 by Andy Liebke. All rights reserved. (http://andysmiles4games.com)
  */
 #ifndef __SIMPLE_AUDIO_SYSTEM_H__
 #define __SIMPLE_AUDIO_SYSTEM_H__
@@ -45,8 +43,8 @@
 #include <OpenAL/al.h>
 #include <OpenAL/alc.h>
 
-#define SIMPLE_AUDIO_LIB_VERSION "0.1.0"
-#define SIMPLE_AUDIO_LIB_VERSION_0_1_0 1
+#define SIMPLE_AUDIO_LIB_VERSION "0.1.1"
+#define SIMPLE_AUDIO_LIB_VERSION_0_1_1 1
 
 /**
  * Simple Audio Library Namespace.

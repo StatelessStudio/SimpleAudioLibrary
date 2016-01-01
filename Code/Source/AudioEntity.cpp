@@ -1,11 +1,11 @@
 /**
- * Simple Audio Library - Audio Entity Module.
+ * Simple Audio Library - Audio Entity Model.
  *
  * LICENSE:
  *	
  *	The MIT License (MIT)
  *
- *	Copyright (c) 2013-2014 by Andy Liebke. All rights reserved.
+ *	Copyright (c) 2013-2016 by Andy Liebke. All rights reserved.
  *
  *	Permission is hereby granted, free of charge, to any person obtaining a copy
  * 	of this software and associated documentation files (the "Software"), to deal
@@ -27,10 +27,8 @@
  *
  * @author		Andy Liebke<coding@andysmiles4games.com>
  * @file		Source/AudioEntity.cpp
- * @version 	1.0.0 27-Jul-13
- * @version		1.1.0 28-Jul-13
- * @version		1.2.0 04-Aug-13
- * @copyright	Copyright (c) 2013-2014 by Andy Liebke. All rights reserved. (http://andysmiles4games.com)
+ * @version		1.2.1 01-Jan-16
+ * @copyright	Copyright (c) 2013-2016 by Andy Liebke. All rights reserved. (http://andysmiles4games.com)
  */
 #include <SimpleAudioLib/AudioEntity.h>
 #include <OpenAL/al.h>
@@ -97,8 +95,7 @@ namespace SimpleAudioLib
 	 */
 	void AudioEntity::play(const bool loop)
 	{
-		if(this->_state != STATE_PLAY)
-		{
+		if (this->_state != STATE_PLAY) {
 			this->_state = STATE_PLAY;
 			
 			alSourcei(this->_source, AL_LOOPING, loop);
@@ -111,8 +108,7 @@ namespace SimpleAudioLib
 	 */
 	void AudioEntity::pause(void)
 	{
-		if(this->_state != STATE_PAUSE)
-		{
+		if (this->_state != STATE_PAUSE) {
 			this->_state = STATE_PAUSE;
 			
 			alSourcePause(this->_source);
@@ -124,8 +120,7 @@ namespace SimpleAudioLib
 	 */
 	void AudioEntity::stop(void)
 	{
-		if(this->_state != STATE_STOP)
-		{
+		if (this->_state != STATE_STOP) {
 			this->_state = STATE_STOP;
 			
 			alSourceStop(this->_source);
@@ -137,8 +132,7 @@ namespace SimpleAudioLib
 	 */
 	void AudioEntity::rewind(void)
 	{
-		if(this->_state != STATE_REWIND)
-		{
+		if (this->_state != STATE_REWIND) {
 			this->_state = STATE_REWIND;
 			
 			alSourceStop(this->_source);
