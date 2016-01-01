@@ -18,7 +18,7 @@ For now, it is only build for Mac OS X. But Windows will be also supported as so
 **Mac OS X**
 
 - Open your console and go to ```"[directory of your copy]/Code/"```
-- Enter: make
+- Enter: ```make```
 
 Now it'll compile the library on your machine and after it's finished it copies all header files into:
 ```"[directory of your copy]/Header/"``` and the bineary to
@@ -31,7 +31,7 @@ So, to use this library in your application, all you have to do is to set the he
 ### Visual Studio Code
 
 The current version also includes a tasks configuration file for Visual Studio Code. All you have to
-do is to open the project in Visual Studio Code and hit CTRL + Shift + B to start the build process
+do is to open the project in Visual Studio Code and hit ```CTRL + Shift + B``` to start the build process
 directly in Visual Studio Code.
 
 ## Code Example
