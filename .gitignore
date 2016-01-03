@@ -1,6 +1,8 @@
 .DS_Store
 *.o
 *.a
+*.vcxproj.user
+*.suo
 Doc/
 Lib/
 Header/
