@@ -29,7 +29,7 @@
  *
  * @author		Andy Liebke<coding@andysmiles4games.com>
  * @file		Header/SimpleAudioLib/CoreSystem.h
- * @version		1.2.1 01-Jan-16
+ * @version		1.2.2 03-Jan-16
  * @copyright	Copyright (c) 2013-2016 by Andy Liebke. All rights reserved. (http://andysmiles4games.com)
  */
 #ifndef __SIMPLE_AUDIO_SYSTEM_H__
@@ -43,8 +43,8 @@
 #include <OpenAL/al.h>
 #include <OpenAL/alc.h>
 
-#define SIMPLE_AUDIO_LIB_VERSION "0.1.1"
-#define SIMPLE_AUDIO_LIB_VERSION_0_1_1 1
+#define SIMPLE_AUDIO_LIB_VERSION "0.2.0"
+#define SIMPLE_AUDIO_LIB_VERSION_0_2_0 1
 
 /**
  * Simple Audio Library Namespace.
