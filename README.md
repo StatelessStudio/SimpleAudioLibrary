@@ -11,11 +11,18 @@ Simple Audio Library is released under the [MIT license](http://opensource.org/l
 
 ## Platform
 
-For now, it is only build for Mac OS X. But Windows will be also supported as soon as possible.
+### Mac OS X
+
+This library is available for Mac OS X by compiling it via make and GCC/Clang.
+
+### Windows
+
+This library includes the Visual Studio Express 2010 solution files and is therefore 
+available for Windows projects as well.
 
 ## How to build
 
-**Mac OS X**
+### Mac OS X
 
 - Open your console and go to ```"[directory of your copy]/Code/"```
 - Enter: ```make```
@@ -33,6 +40,14 @@ So, to use this library in your application, all you have to do is to set the he
 The current version also includes a tasks configuration file for Visual Studio Code. All you have to
 do is to open the project in Visual Studio Code and hit ```CTRL + Shift + B``` to start the build process
 directly in Visual Studio Code.
+
+```NOTE: The build process in Visual Studio Code triggers the make file and is therefore only available for those platforms where GNU make
+is installed and functional. Currently it was only tested on Mac OS X.```
+
+### Visual Studio Express 2010
+
+Open the Visual Studio Express 2010 solution files and compile the library the usual way within Visual Studio Express 2010.
+Afterwards you can add the library into your project like every other library.
 
 ## Code Example
 
