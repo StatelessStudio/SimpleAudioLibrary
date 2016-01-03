@@ -1,11 +1,11 @@
 /**
- * Simple Audio Library - No Device Exception Module.
+ * Simple Audio Library - No Device Exception.
  *
  * LICENSE:
  *	
  *	The MIT License (MIT)
  *
- *	Copyright (c) 2013 by Andy Liebke. All rights reserved.
+ *	Copyright (c) 2013-2016 by Andy Liebke. All rights reserved.
  *
  *	Permission is hereby granted, free of charge, to any person obtaining a copy
  * 	of this software and associated documentation files (the "Software"), to deal
@@ -27,9 +27,8 @@
  *
  * @author		Andy Liebke<coding@andysmiles4games.com>
  * @file		Header/SimpleAudioLib/NoDeviceException.h
- * @version 	1.0.0 27-Jul-13
- * @version		1.1.0 04-Aug-13
- * @copyright	Copyright (c) 2013 by Andy Liebke. All rights reserved. (http://andysmiles4games.com)
+ * @version		1.1.1 01-Jan-16
+ * @copyright	Copyright (c) 2013-2016 by Andy Liebke. All rights reserved. (http://andysmiles4games.com)
  */
 #ifndef __NO_DEVICE_EXCEPTION_H__
 #define __NO_DEVICE_EXCEPTION_H__
