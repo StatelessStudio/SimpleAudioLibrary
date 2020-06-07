@@ -1,5 +1,5 @@
 #include "AudioEntity.h"
-#include <AL/al.h>
+#include <OpenAL/al.h>
 
 /**
  * Simple Audio Library Namespace.
@@ -68,6 +68,8 @@ namespace SimpleAudioLib
 			
 			alSourcei(this->_source, AL_LOOPING, loop);
 			alSourcePlay(this->_source);
+
+			this->_state = STATE_STOP;
 		}
 	}
 	
