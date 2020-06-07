@@ -1,64 +1,3 @@
-#Simple Audio Library
-
-This is a simple audio library using OpenAL. It was made with the thought in mind to have a pretty simple tool
-for playing sound/music in a game or another multimedia application.
-
-WARNING: This is a pretty early version, keep in mind, that method/classes can be removed/renamed/changed at any time.
-
-## License
-
-Simple Audio Library is released under the [MIT license](http://opensource.org/licenses/MIT).
-
-## Installation
-
-### Conan (Recommended)
-
-Add the remote:
-
-`conan remote add https://bintray.com/statelessstudio/simple-audio-library`
-
-Create your conanfile:
-
-`conanfile.txt`
-```
-[requires]
-simple-audio-library/1.0.0@demo/testing
-
-[options]
-
-[generators]
-cmake
-```
-
-Create your CMake file:
-
-`CMakeLists.txt`
-```
-cmake_minimum_required (VERSION 3.8)
-project(SalTest)
-
-include(dependencies/conanbuildinfo.cmake)
-conan_basic_setup()
-
-# Add source to this project's executable.
-file(GLOB source_files
-    "*.h"
-    "*.cpp"
-)
-
-add_executable(SalTest ${source_files})
-target_link_libraries(SalTest ${CONAN_LIBS})
-```
-
-And install!
-
-`mkdir dependencies && cd dependencies`
-
-`conan install ..`
-
-## Usage
-
-```cpp
 #include <CoreSystem.h>
 #include <CorruptedFileException.h>
 #include <InvalidPathException.h>
@@ -76,7 +15,7 @@ int main()
         system.initWithDefaultDevice();
 
         // load audio file in wave format
-        SimpleAudioLib::AudioEntity* sound = system.createAudioEntityFromFile("../resources/test.wav");
+        SimpleAudioLib::AudioEntity* sound = system.createAudioEntityFromFile("../../../../resources/wow.wav");
 
         std::cout << "Success!" << std::endl;
         std::cout << "q to quit" << std::endl;
@@ -116,4 +55,3 @@ int main()
         std::cout << "[ERROR] " << ex.what() << std::endl;
     }
 }
-```
