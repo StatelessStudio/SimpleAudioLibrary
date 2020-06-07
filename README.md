@@ -9,67 +9,111 @@ WARNING: This is a pretty early version, keep in mind, that method/classes can b
 
 Simple Audio Library is released under the [MIT license](http://opensource.org/licenses/MIT).
 
-## Platform
+## Installation
 
-### Mac OS X
+### Conan (Recommended)
 
-This library is available for Mac OS X by compiling it via make and GCC/Clang.
+Add the remote:
 
-### Windows
+`conan remote add https://bintray.com/statelessstudio/simple-audio-library`
 
-This library includes the Visual Studio Express 2010 solution files and is therefore 
-available for Windows projects as well.
+Create your conanfile:
 
-## How to build
+`conanfile.txt`
+```
+[requires]
+simple-audio-library/1.0.0@demo/testing
 
-### Mac OS X
+[options]
 
-- Open your console and go to ```"[directory of your copy]/Code/"```
-- Enter: ```make```
+[generators]
+cmake
+```
 
-Now it'll compile the library on your machine and after it's finished it copies all header files into:
-```"[directory of your copy]/Header/"``` and the bineary to
-```"[directory of your copy]/Lib/"```.
+Create your CMake file:
 
-So, to use this library in your application, all you have to do is to set the header path to:
-```"[directory of your copy]/Header/"``` and the library path to:
-```"[directory of your copy]/Lib/"``` and here we go, you're ready to work with this libary.
+`CMakeLists.txt`
+```
+cmake_minimum_required (VERSION 3.8)
+project(SalTest)
 
-### Visual Studio Code
+include(dependencies/conanbuildinfo.cmake)
+conan_basic_setup()
 
-The current version also includes a tasks configuration file for Visual Studio Code. All you have to
-do is to open the project in Visual Studio Code and hit ```CTRL + Shift + B``` to start the build process
-directly in Visual Studio Code.
+# Add source to this project's executable.
+file(GLOB source_files
+    "*.h"
+    "*.cpp"
+)
 
-```NOTE: The build process in Visual Studio Code triggers the make file and is therefore only available for those platforms where GNU make
-is installed and functional. Currently it was only tested on Mac OS X.```
+add_executable(SalTest ${source_files})
+target_link_libraries(SalTest ${CONAN_LIBS})
+```
 
-### Visual Studio Express 2010
+And install!
 
-Open the Visual Studio Express 2010 solution files and compile the library the usual way within Visual Studio Express 2010.
-Afterwards you can add the library into your project like every other library.
+`mkdir dependencies && cd dependencies`
 
-## Code Example
+`conan install ..`
 
-This is the simplest version to work with this library:
-```c++
-// include needed header file
-#include <SimpleAudioLib/CoreSystem.h>
+## Usage
 
-// before you can use this library, you have to initialize it
-SimpleAudioLib::CoreSystem& system = SimpleAudioLib::CoreSystem::getInstance();
+```cpp
+#include <CoreSystem.h>
+#include <CorruptedFileException.h>
+#include <InvalidPathException.h>
+#include <NoContextException.h>
+#include <NoDeviceException.h>
 
-system.initWithDefaultDevice();
+#include <iostream>
 
-// load audio file in wave format
-SimpleAudioLib::AudioEntity* sound = system.createAudioEntityFromFile("YourAudioFile.wav");
+int main()
+{
+    try {
+        // before you can use this library, you have to initialize it
+        SimpleAudioLib::CoreSystem& system = SimpleAudioLib::CoreSystem::getInstance();
 
-// play sound
-sound.play();
+        system.initWithDefaultDevice();
 
-// clean up
-delete sound;
-sound = NULL;
+        // load audio file in wave format
+        SimpleAudioLib::AudioEntity* sound = system.createAudioEntityFromFile("../resources/test.wav");
 
-SimpleAudioLib::CoreSystem::release();
+        std::cout << "Success!" << std::endl;
+        std::cout << "q to quit" << std::endl;
+
+        sound->setPitch(0.5);
+
+        float input = 0.5;
+        while (input != 'q') {
+            std::cin >> input;
+
+            sound->setPitch(input);
+            
+            // play sound
+            sound->play();
+        }
+
+        // clean up
+        delete sound;
+        sound = NULL;
+
+        SimpleAudioLib::CoreSystem::release();
+
+    }
+    catch (SimpleAudioLib::InvalidPathException ex) {
+        std::cout << "[ERROR] (Invalid Path) " << ex.what() << std::endl;
+    }
+    catch (SimpleAudioLib::CorruptedFileException ex) {
+        std::cout << "[ERROR] (Corrupted File) " << ex.what() << std::endl;
+    }
+    catch (SimpleAudioLib::NoContextException ex) {
+        std::cout << "[ERROR] (No Context) " << ex.what() << std::endl;
+    }
+    catch (SimpleAudioLib::NoDeviceException ex) {
+        std::cout << "[ERROR] (No Device) " << ex.what() << std::endl;
+    }
+    catch (std::exception ex) {
+        std::cout << "[ERROR] " << ex.what() << std::endl;
+    }
+}
 ```
