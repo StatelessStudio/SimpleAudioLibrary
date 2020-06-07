@@ -33,7 +33,7 @@
 #ifndef __NO_DEVICE_EXCEPTION_H__
 #define __NO_DEVICE_EXCEPTION_H__
 
-#include <SimpleAudioLib/BaseMessageException.h>
+#include "BaseMessageException.h"
 
 /**
  * Simple Audio Library Namespace.

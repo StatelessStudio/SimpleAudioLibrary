@@ -30,7 +30,7 @@
  * @version 	1.0.1 01-Jan-16
  * @copyright	Copyright (c) 2013-2016 by Andy Liebke. All rights reserved. (http://andysmiles4games.com)
  */
-#include <SimpleAudioLib/BaseMessageException.h>
+#include "BaseMessageException.h"
 
 /**
  * Simple Audio Library Namespace.

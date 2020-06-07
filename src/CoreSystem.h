@@ -35,11 +35,11 @@
 #ifndef __SIMPLE_AUDIO_SYSTEM_H__
 #define __SIMPLE_AUDIO_SYSTEM_H__
 
-#include <SimpleAudioLib/NoDeviceException.h>
-#include <SimpleAudioLib/NoContextException.h>
-#include <SimpleAudioLib/CorruptedFileException.h>
-#include <SimpleAudioLib/InvalidPathException.h>
-#include <SimpleAudioLib/AudioEntity.h>
+#include "NoDeviceException.h"
+#include "NoContextException.h"
+#include "CorruptedFileException.h"
+#include "InvalidPathException.h"
+#include "AudioEntity.h"
 #include <OpenAL/al.h>
 #include <OpenAL/alc.h>
 

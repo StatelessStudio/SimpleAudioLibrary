@@ -33,7 +33,7 @@
 #ifndef __CORRUPTED_FILE_EXCEPTION_H__
 #define __CORRUPTED_FILE_EXCEPTION_H__
 
-#include <SimpleAudioLib/BaseMessageException.h>
+#include "BaseMessageException.h"
 
 /**
  * Simple Audio Library Namespace.

@@ -33,7 +33,7 @@
 #ifndef __INVALID_PATH_EXCEPTION_H__
 #define __INVALID_PATH_EXCEPTION_H__
 
-#include <SimpleAudioLib/BaseMessageException.h>
+#include "BaseMessageException.h"
 
 /**
  * Simple Audio Library Namespace.
