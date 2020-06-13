@@ -1,8 +1,8 @@
-#include <CoreSystem.h>
-#include <CorruptedFileException.h>
-#include <InvalidPathException.h>
-#include <NoContextException.h>
-#include <NoDeviceException.h>
+#include <SimpleAudioLibrary/CoreSystem.h>
+#include <SimpleAudioLibrary/CorruptedFileException.h>
+#include <SimpleAudioLibrary/InvalidPathException.h>
+#include <SimpleAudioLibrary/NoContextException.h>
+#include <SimpleAudioLibrary/NoDeviceException.h>
 
 #include <iostream>
 
