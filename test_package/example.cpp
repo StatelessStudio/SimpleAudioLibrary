@@ -3,7 +3,7 @@
 #include <SimpleAudioLibrary/InvalidPathException.h>
 #include <SimpleAudioLibrary/NoContextException.h>
 #include <SimpleAudioLibrary/NoDeviceException.h>
-#include <SimpleAudioLibrary/AudioEntity.h>
+#include <SimpleAudioLibrary/Source.h>
 #include <SimpleAudioLibrary/Sound.h>
 
 #include <iostream>
@@ -23,7 +23,7 @@ int main()
         wow.loadWaveFile("../../../../resources/wow.wav");
 
         // Create entity
-        SimpleAudioLib::AudioEntity ent;
+        SimpleAudioLib::Source ent;
 
         std::cout << "Success!" << std::endl;
         std::cout << "q to quit" << std::endl;

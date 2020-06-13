@@ -11,7 +11,7 @@ namespace SimpleAudioLib
 	/**
 	 * Audio Entity State List.
 	 */
-	enum EAudioEntityState
+	enum ESourceState
 	{
 		/**
 		 * Audio entity stops playing.
@@ -37,25 +37,25 @@ namespace SimpleAudioLib
 	/**
 	 * Audio Entity Class.
 	 */
-	class AudioEntity
+	class Source
 	{
 		public:
 			/**
 			 * Creates new instance of this class.
 			 */
-			AudioEntity();
+			Source();
 
 			/**
 			 * Creates new instance by copying another instance of this class.
 			 *
 			 * @param src - reference to the other instance of this class
 			 */
-			AudioEntity(const AudioEntity &src);
+			Source(const Source &src);
 			
 			/**
 			 * Releases this instance of this class.
 			 */
-			virtual ~AudioEntity(void);
+			virtual ~Source(void);
 
 			/**
 			 * Assigns data by another instance of this class.
@@ -63,7 +63,7 @@ namespace SimpleAudioLib
 			 * @param src - reference to the other instance of this class
 			 * @return reference to this instance of this class
 			 */
-			AudioEntity& operator = (AudioEntity &src);
+			Source& operator = (Source &src);
 			
 			/**
 			 * Starts playing its content of this audio entity.
@@ -144,7 +144,7 @@ namespace SimpleAudioLib
 			/**
 			 * Stores current state of this entity.
 			 */
-			EAudioEntityState _state;
+			ESourceState _state;
 	};
 }
 

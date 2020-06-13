@@ -69,7 +69,7 @@ int main()
         system.initWithDefaultDevice();
 
         // load audio file in wave format
-        SimpleAudioLib::AudioEntity* sound = system.createAudioEntityFromFile("../resources/test.wav");
+        SimpleAudioLib::Source* sound = system.createSourceFromFile("../resources/test.wav");
 
         std::cout << "Success!" << std::endl;
         std::cout << "q to quit" << std::endl;

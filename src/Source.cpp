@@ -1,4 +1,4 @@
-#include "AudioEntity.h"
+#include "Source.h"
 #include <AL.h>
 
 /**
@@ -9,7 +9,7 @@ namespace SimpleAudioLib
 	/**
 	 * Creates new instance of this class.
 	 */
-	AudioEntity::AudioEntity() :
+	Source::Source() :
 		_source(0),
 		_state(STATE_STOP)
 	{
@@ -21,7 +21,7 @@ namespace SimpleAudioLib
 	 *
 	 * @param src - reference to the other instance of this class
 	 */
-	AudioEntity::AudioEntity(const AudioEntity &src) :
+	Source::Source(const Source &src) :
 		_source(src._source),
 		_state(STATE_STOP)
 	{
@@ -30,7 +30,7 @@ namespace SimpleAudioLib
 	/**
 	 * Releases this instance of this class.
 	 */
-	AudioEntity::~AudioEntity(void)
+	Source::~Source(void)
 	{
 	}
 
@@ -40,7 +40,7 @@ namespace SimpleAudioLib
 	 * @param src - reference to the other instance of this class
 	 * @return reference to this instance of this class
 	 */
-	AudioEntity& AudioEntity::operator = (AudioEntity &src)
+	Source& Source::operator = (Source &src)
 	{
 		return *this;
 	}
@@ -51,7 +51,7 @@ namespace SimpleAudioLib
 	 * @param buffer - Sound buffer to play
 	 * @param loop - true if this content should be running in a loop otherwise false
 	 */
-	void AudioEntity::play(unsigned int buffer, const bool loop)
+	void Source::play(unsigned int buffer, const bool loop)
 	{
 		if (this->_state != STATE_PLAY) {
 			this->_state = STATE_PLAY;
@@ -67,7 +67,7 @@ namespace SimpleAudioLib
 	/**
 	 * Pauses playing its content of this audio entity.
 	 */
-	void AudioEntity::pause(void)
+	void Source::pause(void)
 	{
 		if (this->_state != STATE_PAUSE) {
 			this->_state = STATE_PAUSE;
@@ -79,7 +79,7 @@ namespace SimpleAudioLib
 	/**
 	 * Stops playing its content of this audio entity.
 	 */
-	void AudioEntity::stop(void)
+	void Source::stop(void)
 	{
 		if (this->_state != STATE_STOP) {
 			this->_state = STATE_STOP;
@@ -91,7 +91,7 @@ namespace SimpleAudioLib
 	/**
 	 * Rewinds current play position to the beginning.
 	 */
-	void AudioEntity::rewind(void)
+	void Source::rewind(void)
 	{
 		if (this->_state != STATE_REWIND) {
 			this->_state = STATE_REWIND;
@@ -107,7 +107,7 @@ namespace SimpleAudioLib
 	 * @param y - value on the y-axis of audio entity position
 	 * @param z - value on the z-axis of audio entity position
 	 */
-	void AudioEntity::setPosition(const float x, const float y, const float z)
+	void Source::setPosition(const float x, const float y, const float z)
 	{
 		alSource3f(this->_source, AL_POSITION, x, y, z);
 	}
@@ -119,7 +119,7 @@ namespace SimpleAudioLib
 	 * @param y - value on the y-axis of audio entity direction
 	 * @param z - value on the z-axis of audio entity direction
 	 */
-	void AudioEntity::setDirection(const float x, const float y, const float z)
+	void Source::setDirection(const float x, const float y, const float z)
 	{
 		float direction[3] = {x, y, z};
 		
@@ -133,7 +133,7 @@ namespace SimpleAudioLib
 	 * @param y - value on the y-axis of audio entity velocity
 	 * @param z - value on the z-axis of audio entity velocity
 	 */
-	void AudioEntity::setVelocity(const float x, const float y, const float z)
+	void Source::setVelocity(const float x, const float y, const float z)
 	{
 		alSource3f(this->_source, AL_VELOCITY, x, y, z);
 	}
@@ -143,7 +143,7 @@ namespace SimpleAudioLib
 	 *
 	 * @param pitch - new pitch value
 	 */
-	void AudioEntity::setPitch(const float pitch)
+	void Source::setPitch(const float pitch)
 	{
 		alSourcef(this->_source, AL_PITCH, pitch);
 	}
@@ -153,7 +153,7 @@ namespace SimpleAudioLib
 	 *
 	 * @param gain - new gain value
 	 */
-	void AudioEntity::setGain(const float gain)
+	void Source::setGain(const float gain)
 	{
 		alSourcef(this->_source, AL_GAIN, gain);
 	}
@@ -161,7 +161,7 @@ namespace SimpleAudioLib
 	/**
 	 * Releases all reserved memory.
 	 */
-	void AudioEntity::release(void)
+	void Source::release(void)
 	{
 		alDeleteSources(1, &this->_source);
 	}
