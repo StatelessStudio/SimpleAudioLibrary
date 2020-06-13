@@ -1,5 +1,5 @@
 #include "AudioEntity.h"
-#include <OpenAL/al.h>
+#include <AL.h>
 
 /**
  * Simple Audio Library Namespace.
