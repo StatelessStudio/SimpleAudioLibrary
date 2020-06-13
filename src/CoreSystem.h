@@ -5,7 +5,6 @@
 #include "NoContextException.h"
 #include "CorruptedFileException.h"
 #include "InvalidPathException.h"
-#include "AudioEntity.h"
 #include <AL/al.h>
 #include <AL/alc.h>
 
@@ -49,17 +48,7 @@ namespace SimpleAudioLib
 			 * @throws NoDeviceException - in case that no device is available
 			 */
 			void initWithDefaultDevice(void) throw(NoDeviceException, NoContextException);
-			
-			/**
-			 * Creates a new audio entity including audio data from an audio file.
-			 *
-			 * @param path - string including path to the audio file
-			 * @return object of the audio entity class in case that the file was successfuly loaded otherwise NULL
-			 * @throws InvalidPathException 	- in case that given path parameter is empty
-			 * @throws CorruptedFileException	- in case that the audio file couldn't be opened
-			 */
-			AudioEntity* createAudioEntityFromFile(const std::string path) const  throw(InvalidPathException, CorruptedFileException);
-			
+
 			/**
 			 * Assigns position to listener.
 			 *
@@ -120,16 +109,6 @@ namespace SimpleAudioLib
 			 * Releases reserved memory of this module.
 			 */
 			void _release(void);
-			
-			/**
-			 * Creates a new audio entity including audio data from an audio file.
-			 *
-			 * @param path - string including path to the audio file
-			 * @return object of the audio entity class in case that the file was successfuly loaded otherwise NULL
-			 * @throws InvalidPathException 	- in case that given path parameter is empty
-			 * @throws CorruptedFileException	- in case that the audio file couldn't be opened
-			 */
-			AudioEntity* _loadWaveFile(const std::string path) const throw(InvalidPathException, CorruptedFileException);
 			
 		private:
 			/**

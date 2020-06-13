@@ -3,6 +3,8 @@
 #include <SimpleAudioLibrary/InvalidPathException.h>
 #include <SimpleAudioLibrary/NoContextException.h>
 #include <SimpleAudioLibrary/NoDeviceException.h>
+#include <SimpleAudioLibrary/AudioEntity.h>
+#include <SimpleAudioLibrary/Sound.h>
 
 #include <iostream>
 
@@ -17,12 +19,16 @@ int main()
         system.setListenerVelocity(0, 0, 0);
 
         // load audio file in wave format
-        SimpleAudioLib::AudioEntity* sound = system.createAudioEntityFromFile("../../../../resources/wow.wav");
+        SimpleAudioLib::Sound wow;
+        wow.loadWaveFile("../../../../resources/wow.wav");
+
+        // Create entity
+        SimpleAudioLib::AudioEntity ent;
 
         std::cout << "Success!" << std::endl;
         std::cout << "q to quit" << std::endl;
 
-        sound->setPitch(0.5);
+        ent.setPitch(0.5);
 
         char input = ' ';
         float x, y, z;
@@ -35,19 +41,15 @@ int main()
             std::cin >> y;
             std::cout << "z: " << std::flush;
             std::cin >> z;
-            sound->setPitch(1);
-            sound->setPosition(x, y, z);
-            
+            ent.setPitch(1);
+            ent.setPosition(x, y, z);
+
             // play sound
-            sound->play();
+            ent.play(wow.getBuffer());
 
             std::cout << "q? " << std::flush;
             std::cin >> input;
         }
-
-        // clean up
-        delete sound;
-        sound = NULL;
 
         SimpleAudioLib::CoreSystem::release();
 

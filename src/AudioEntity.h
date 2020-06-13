@@ -42,14 +42,9 @@ namespace SimpleAudioLib
 		public:
 			/**
 			 * Creates new instance of this class.
-			 *
-			 * @param data 			- bineary audio content
-			 * @param size			- size of the bineary audio content
-			 * @param frequency		- audio frequency
-			 * @param numChannels	- number of channels that audio content is made for
 			 */
-			AudioEntity(unsigned char* data, const unsigned int size, const unsigned int frequency, const short numChannels);
-			
+			AudioEntity();
+
 			/**
 			 * Creates new instance by copying another instance of this class.
 			 *
@@ -61,7 +56,7 @@ namespace SimpleAudioLib
 			 * Releases this instance of this class.
 			 */
 			virtual ~AudioEntity(void);
-			
+
 			/**
 			 * Assigns data by another instance of this class.
 			 *
@@ -73,9 +68,10 @@ namespace SimpleAudioLib
 			/**
 			 * Starts playing its content of this audio entity.
 			 *
+			 * @param buffer - Sound buffer to play
 			 * @param loop - true if this content should be running in a loop otherwise false
 			 */
-			void play(const bool loop=false);
+			void play(unsigned int buffer, const bool loop=false);
 			
 			/**
 			 * Pauses playing its content of this audio entity.
@@ -139,11 +135,6 @@ namespace SimpleAudioLib
 			void setGain(const float gain);
 			
 		private:
-		
-			/**
-			 * Stores current buffer id of this entity.
-			 */
-			unsigned int _buffer;
 			
 			/**
 			 * Stores current source id of this entity.

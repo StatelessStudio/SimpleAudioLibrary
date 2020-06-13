@@ -8,43 +8,32 @@ namespace SimpleAudioLib
 {
 	/**
 	 * Creates new instance of this class.
-	 *
-	 * @param data 			- bineary audio content
-	 * @param size			- size of the bineary audio content
-	 * @param frequency		- audio frequency
-	 * @param numChannels	- number of channels that audio content is made for
 	 */
-	AudioEntity::AudioEntity(unsigned char* data, const unsigned int size, const unsigned int frequency, const short numChannels) :
-		_buffer(0),
+	AudioEntity::AudioEntity() :
 		_source(0),
 		_state(STATE_STOP)
 	{
-		alGenBuffers(1, &this->_buffer);
-		alBufferData(this->_buffer, (numChannels == 2) ? AL_FORMAT_STEREO16 : AL_FORMAT_MONO16, data, size, frequency);
-		
 		alGenSources(1, &this->_source);
-		alSourcei(this->_source, AL_BUFFER, this->_buffer);
 	}
-	
+
 	/**
 	 * Creates new instance by copying another instance of this class.
 	 *
 	 * @param src - reference to the other instance of this class
 	 */
 	AudioEntity::AudioEntity(const AudioEntity &src) :
-		_buffer(src._buffer),
 		_source(src._source),
 		_state(STATE_STOP)
 	{
 	}
-	
+
 	/**
 	 * Releases this instance of this class.
 	 */
 	AudioEntity::~AudioEntity(void)
 	{
 	}
-	
+
 	/**
 	 * Assigns data by another instance of this class.
 	 *
@@ -59,12 +48,14 @@ namespace SimpleAudioLib
 	/**
 	 * Starts playing its content of this audio entity.
 	 *
+	 * @param buffer - Sound buffer to play
 	 * @param loop - true if this content should be running in a loop otherwise false
 	 */
-	void AudioEntity::play(const bool loop)
+	void AudioEntity::play(unsigned int buffer, const bool loop)
 	{
 		if (this->_state != STATE_PLAY) {
 			this->_state = STATE_PLAY;
+			alSourcei(this->_source, AL_BUFFER, buffer);
 			
 			alSourcei(this->_source, AL_LOOPING, loop);
 			alSourcePlay(this->_source);
@@ -173,6 +164,5 @@ namespace SimpleAudioLib
 	void AudioEntity::release(void)
 	{
 		alDeleteSources(1, &this->_source);
-		alDeleteBuffers(1, &this->_buffer);
 	}
 }
