@@ -1,4 +1,4 @@
-#include "CoreSystem.h"
+#include "Listener.h"
 #include <stdlib.h>
 
 /**
@@ -11,12 +11,12 @@ namespace SimpleAudioLib
 	 *
 	 * @note This is part of the Singleton-Pattern.
 	 */
-	CoreSystem* CoreSystem::_instance = NULL;
+	Listener* Listener::_instance = NULL;
 	
 	/**
 	 * Creates new instance of this class.
 	 */
-	CoreSystem::CoreSystem(void) :
+	Listener::Listener(void) :
 		_device(NULL),
 		_context(NULL)
 	{
@@ -27,7 +27,7 @@ namespace SimpleAudioLib
 	 *
 	 * @param src - reference to the other instance of this class
 	 */
-	CoreSystem::CoreSystem(const CoreSystem &src) :
+	Listener::Listener(const Listener &src) :
 		_device(NULL),
 		_context(NULL)
 	{
@@ -36,7 +36,7 @@ namespace SimpleAudioLib
 	/**
 	 * Releases this instance of this class.
 	 */
-	CoreSystem::~CoreSystem(void)
+	Listener::~Listener(void)
 	{
 	}
 	
@@ -44,9 +44,9 @@ namespace SimpleAudioLib
 	 * Assigns data by another instance of this class.
 	 *
 	 * @param src - reference to the other instance of this class
-	 * @return CoreSystem - reference to this instance of this class
+	 * @return Listener - reference to this instance of this class
 	 */
-	CoreSystem& CoreSystem::operator = (const CoreSystem &src)
+	Listener& Listener::operator = (const Listener &src)
 	{
 		return *this;
 	}
@@ -58,12 +58,12 @@ namespace SimpleAudioLib
 	 * this method will create one.
 	 *
 	 * @note This is part of the Singleton-Pattern.
-	 * @return CoreSystem - reference to the only existing instance of this class.
+	 * @return Listener - reference to the only existing instance of this class.
 	 */
-	CoreSystem& CoreSystem::getInstance(void)
+	Listener& Listener::getInstance(void)
 	{
 		if(_instance == NULL){
-			_instance = new CoreSystem();
+			_instance = new Listener();
 		}
 		
 		return *_instance;
@@ -74,7 +74,7 @@ namespace SimpleAudioLib
 	 *
 	 * @note This is part of the Singleton-Pattern.
 	 */
-	void CoreSystem::release(void)
+	void Listener::release(void)
 	{
 		if (_instance != NULL) {
 			_instance->_release();
@@ -87,7 +87,7 @@ namespace SimpleAudioLib
 	/**
 	 * Releases reserved memory of this module.
 	 */
-	void CoreSystem::_release(void)
+	void Listener::_release(void)
 	{
 		if (this->_context != NULL) {
 			alcMakeContextCurrent(NULL);
@@ -104,7 +104,7 @@ namespace SimpleAudioLib
 	 *
 	 * @throws NoDeviceException - in case that no device is available
 	 */
-	void CoreSystem::initWithDefaultDevice(void) throw(NoDeviceException, NoContextException)
+	void Listener::initWithDefaultDevice(void) throw(NoDeviceException, NoContextException)
 	{
 		this->_device = alcOpenDevice(NULL);
 		
@@ -128,7 +128,7 @@ namespace SimpleAudioLib
 	 * @param y - value on the y-axis of listener position
 	 * @param z - value on the z-axis of listener position
 	 */
-	void CoreSystem::setListenerPosition(const float x, const float y, const float z)
+	void Listener::setPosition(const float x, const float y, const float z)
 	{
 		alListener3f(AL_POSITION, x, y, z);
 	}
@@ -143,7 +143,7 @@ namespace SimpleAudioLib
 	 * @param upY - value on the y-axis of listener up vector
 	 * @param upZ - value on the z-axis of listener up vector
 	 */
-	void CoreSystem::setListenerOrientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ)
+	void Listener::setOrientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ)
 	{
 		float orientation[6] = {atX, atY, atZ, upX, upY, upZ};
 		
@@ -157,7 +157,7 @@ namespace SimpleAudioLib
 	 * @param y - value on the y-axis of listener velocity
 	 * @param z - value on the z-axis of listener velocity
 	 */
-	void CoreSystem::setListenerVelocity(const float x, const float y, const float z)
+	void Listener::setVelocity(const float x, const float y, const float z)
 	{
 		alListener3f(AL_VELOCITY, x, y, z);
 	}

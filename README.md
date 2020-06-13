@@ -52,7 +52,7 @@ And install!
 ## Usage
 
 ```cpp
-#include <CoreSystem.h>
+#include <Listener.h>
 #include <CorruptedFileException.h>
 #include <InvalidPathException.h>
 #include <NoContextException.h>
@@ -64,7 +64,7 @@ int main()
 {
     try {
         // before you can use this library, you have to initialize it
-        SimpleAudioLib::CoreSystem& system = SimpleAudioLib::CoreSystem::getInstance();
+        SimpleAudioLib::Listener& system = SimpleAudioLib::Listener::getInstance();
 
         system.initWithDefaultDevice();
 
@@ -90,7 +90,7 @@ int main()
         delete sound;
         sound = NULL;
 
-        SimpleAudioLib::CoreSystem::release();
+        SimpleAudioLib::Listener::release();
 
     }
     catch (SimpleAudioLib::InvalidPathException ex) {

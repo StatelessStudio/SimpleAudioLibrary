@@ -21,7 +21,7 @@ namespace SimpleAudioLib
 	 *
 	 * @note This class is implemented as singleton.
 	 */
-	class CoreSystem
+	class Listener
 	{
 		public:
 			/**
@@ -33,7 +33,7 @@ namespace SimpleAudioLib
 			 * @note This is part of the Singleton-Pattern.
 			 * @return reference to the only existing instance of this class.
 			 */
-			static CoreSystem& getInstance(void);
+			static Listener& getInstance(void);
 			
 			/**
 			 * Releases memory of this instance.
@@ -56,7 +56,7 @@ namespace SimpleAudioLib
 			 * @param y - value on the y-axis of listener position
 			 * @param z - value on the z-axis of listener position
 			 */
-			void setListenerPosition(const float x, const float y, const float z);
+			void setPosition(const float x, const float y, const float z);
 			
 			/**
 			 * Assigns orientation to listener.
@@ -68,7 +68,7 @@ namespace SimpleAudioLib
 			 * @param upY - value on the y-axis of listener up vector
 			 * @param upZ - value on the z-axis of listener up vector
 			 */
-			void setListenerOrientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ);
+			void setOrientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ);
 			
 			/**
 			 * Assigns velocity to listener.
@@ -77,25 +77,25 @@ namespace SimpleAudioLib
 			 * @param y - value on the y-axis of listener velocity
 			 * @param z - value on the z-axis of listener velocity
 			 */
-			void setListenerVelocity(const float x, const float y, const float z);
+			void setVelocity(const float x, const float y, const float z);
 			
 		private:
 			/**
 			 * Creates new instance of this class.
 			 */
-			CoreSystem(void);
+			Listener(void);
 			
 			/**
 			 * Creates new instance by copying another instance of this class.
 			 *
 			 * @param src - reference to the other instance of this class
 			 */
-			CoreSystem(const CoreSystem &src);
+			Listener(const Listener &src);
 			
 			/**
 			 * Releases this instance of this class.
 			 */
-			~CoreSystem(void);
+			~Listener(void);
 			
 			/**
 			 * Assigns data by another instance of this class.
@@ -103,7 +103,7 @@ namespace SimpleAudioLib
 			 * @param src - reference to the other instance of this class
 			 * @return reference to this instance of this class
 			 */
-			CoreSystem& operator = (const CoreSystem &src);	
+			Listener& operator = (const Listener &src);	
 			
 			/**
 			 * Releases reserved memory of this module.
@@ -116,7 +116,7 @@ namespace SimpleAudioLib
 			 *
 			 * @note This is part of the Singleton-Pattern.
 			 */
-			static CoreSystem* _instance;
+			static Listener* _instance;
 			
 			/**
 			 * Stores selected audio device of this system.

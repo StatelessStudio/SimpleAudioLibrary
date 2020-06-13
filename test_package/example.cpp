@@ -1,4 +1,4 @@
-#include <SimpleAudioLibrary/CoreSystem.h>
+#include <SimpleAudioLibrary/Listener.h>
 #include <SimpleAudioLibrary/CorruptedFileException.h>
 #include <SimpleAudioLibrary/InvalidPathException.h>
 #include <SimpleAudioLibrary/NoContextException.h>
@@ -12,11 +12,11 @@ int main()
 {
     try {
         // before you can use this library, you have to initialize it
-        SimpleAudioLib::CoreSystem& system = SimpleAudioLib::CoreSystem::getInstance();
+        SimpleAudioLib::Listener& listener = SimpleAudioLib::Listener::getInstance();
 
-        system.initWithDefaultDevice();
-        system.setListenerPosition(0, 0, 0);
-        system.setListenerVelocity(0, 0, 0);
+        listener.initWithDefaultDevice();
+        listener.setPosition(0, 0, 0);
+        listener.setVelocity(0, 0, 0);
 
         // load audio file in wave format
         SimpleAudioLib::Sound wow;
@@ -51,7 +51,7 @@ int main()
             std::cin >> input;
         }
 
-        SimpleAudioLib::CoreSystem::release();
+        SimpleAudioLib::Listener::release();
 
     }
     catch (SimpleAudioLib::InvalidPathException ex) {
