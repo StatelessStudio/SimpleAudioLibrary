@@ -13,6 +13,8 @@ int main()
         SimpleAudioLib::CoreSystem& system = SimpleAudioLib::CoreSystem::getInstance();
 
         system.initWithDefaultDevice();
+        system.setListenerPosition(0, 0, 0);
+        system.setListenerVelocity(0, 0, 0);
 
         // load audio file in wave format
         SimpleAudioLib::AudioEntity* sound = system.createAudioEntityFromFile("../../../../resources/wow.wav");
@@ -22,14 +24,25 @@ int main()
 
         sound->setPitch(0.5);
 
-        float input = 0.5;
-        while (input != 'q') {
-            std::cin >> input;
+        char input = ' ';
+        float x, y, z;
 
-            sound->setPitch(input);
+        while (input != 'q') {
+
+            std::cout << "x: " << std::flush;
+            std::cin >> x;
+            std::cout << "y: " << std::flush;
+            std::cin >> y;
+            std::cout << "z: " << std::flush;
+            std::cin >> z;
+            sound->setPitch(1);
+            sound->setPosition(x, y, z);
             
             // play sound
             sound->play();
+
+            std::cout << "q? " << std::flush;
+            std::cin >> input;
         }
 
         // clean up
@@ -54,4 +67,6 @@ int main()
     catch (std::exception ex) {
         std::cout << "[ERROR] " << ex.what() << std::endl;
     }
+
+    return 0;
 }
