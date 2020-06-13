@@ -1,0 +1,31 @@
+# Doxyfile 1.8.18
+
+PROJECT_NAME           = "Simple Audio Library"
+PROJECT_NUMBER         = 1.0.0
+OUTPUT_DIRECTORY       = docs/
+
+INPUT                  =
+INPUT_ENCODING         = UTF-8
+FILE_PATTERNS          = *.c \
+                         *.cc \
+                         *.cxx \
+                         *.cpp \
+                         *.c++ \
+                         *.h \
+                         *.hh \
+                         *.hxx \
+                         *.hpp \
+                         *.h++ \
+                         *.markdown \
+                         *.md
+RECURSIVE              = YES
+EXCLUDE                = docs/ \
+                         resources/ \
+                         test_package/build
+EXAMPLE_PATH           = test_package/
+EXAMPLE_PATTERNS       = *
+EXAMPLE_RECURSIVE      = NO
+USE_MDFILE_AS_MAINPAGE = README.md
+
+STRIP_CODE_COMMENTS    = NO
+REFERENCES_LINK_SOURCE = NO
