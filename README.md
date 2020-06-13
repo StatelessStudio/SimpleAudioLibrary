@@ -1,13 +1,6 @@
-#Simple Audio Library
+# Simple Audio Library
 
-This is a simple audio library using OpenAL. It was made with the thought in mind to have a pretty simple tool
-for playing sound/music in a game or another multimedia application.
-
-WARNING: This is a pretty early version, keep in mind, that method/classes can be removed/renamed/changed at any time.
-
-## License
-
-Simple Audio Library is released under the [MIT license](http://opensource.org/licenses/MIT).
+This is a simple audio library using OpenAL. It was made with the thought in mind to have a pretty simple tool for playing sound/music in a game or another multimedia application.
 
 ## Installation
 
@@ -117,3 +110,13 @@ int main()
     }
 }
 ```
+
+## Documentation
+
+Build the docs:
+
+```bash
+doxygen
+```
+
+You'll see the docs folder, find `index.html`
