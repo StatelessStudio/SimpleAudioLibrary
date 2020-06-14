@@ -1,5 +1,4 @@
-#ifndef __INVALID_PATH_EXCEPTION_H__
-#define __INVALID_PATH_EXCEPTION_H__
+#pragma once
 
 #include "BaseMessageException.h"
 
@@ -41,5 +40,3 @@ namespace SimpleAudioLib
 			}
 	};
 }
-
-#endif

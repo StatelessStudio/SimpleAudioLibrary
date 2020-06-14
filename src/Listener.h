@@ -1,5 +1,4 @@
-#ifndef __SIMPLE_AUDIO_SYSTEM_H__
-#define __SIMPLE_AUDIO_SYSTEM_H__
+#pragma once
 
 #include "NoDeviceException.h"
 #include "NoContextException.h"
@@ -96,5 +95,3 @@ namespace SimpleAudioLib
 			ALCcontext* _context;
 	};
 }
-
-#endif

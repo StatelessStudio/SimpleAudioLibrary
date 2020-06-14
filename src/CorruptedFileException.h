@@ -1,5 +1,4 @@
-#ifndef __CORRUPTED_FILE_EXCEPTION_H__
-#define __CORRUPTED_FILE_EXCEPTION_H__
+#pragma once
 
 #include "BaseMessageException.h"
 
@@ -41,5 +40,3 @@ namespace SimpleAudioLib
 			}
 	};
 }
-
-#endif

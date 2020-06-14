@@ -1,5 +1,4 @@
-#ifndef __BASE_MESSAGE_EXCEPTION_H__
-#define __BASE_MESSAGE_EXCEPTION_H__
+#pragma once
 
 #include <exception>
 #include <string>
@@ -58,5 +57,3 @@ namespace SimpleAudioLib
 			std::string _message;
 	};
 }
-
-#endif

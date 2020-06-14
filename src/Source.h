@@ -1,5 +1,4 @@
-#ifndef __AUDIO_ENTITY_H__
-#define __AUDIO_ENTITY_H__
+#pragma once
 
 #include <string>
 
@@ -154,5 +153,3 @@ namespace SimpleAudioLib
 			ESourceState _state;
 	};
 }
-
-#endif

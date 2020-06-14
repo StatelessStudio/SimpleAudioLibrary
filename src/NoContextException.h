@@ -1,5 +1,4 @@
-#ifndef __NO_CONTEXT_EXCEPTION_H__
-#define __NO_CONTEXT_EXCEPTION_H__
+#pragma once
 
 #include "BaseMessageException.h"
 
@@ -41,5 +40,3 @@ namespace SimpleAudioLib
 			}
 	};
 }
-
-#endif
