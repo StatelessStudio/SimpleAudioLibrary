@@ -19,7 +19,7 @@ namespace SimpleAudio
 			 *
 			 * @param message - string including exception message
 			 */
-			InvalidPathException(const std::string message) : BaseMessageException(message)
+			InvalidPathException(const char* message) : BaseMessageException(message)
 			{
 			}
 			

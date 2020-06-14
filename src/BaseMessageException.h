@@ -1,7 +1,6 @@
 #pragma once
 
 #include <exception>
-#include <string>
 
 /**
  * Simple Audio Library Namespace.
@@ -20,7 +19,7 @@ namespace SimpleAudio
 			 *
 			 * @param message - string including exception message
 			 */
-			BaseMessageException(const std::string message);
+			BaseMessageException(const char* message);
 			
 			/**
 			 * Creates new instance by copying another instance of this class.
@@ -54,6 +53,6 @@ namespace SimpleAudio
 			/**
 			 * Stores exception message.
 			 */
-			std::string _message;
+			const char* _message;
 	};
 }

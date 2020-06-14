@@ -19,7 +19,7 @@ namespace SimpleAudio
 			 *
 			 * @param message - string including exception message
 			 */
-			CorruptedFileException(const std::string message) : BaseMessageException(message)
+			CorruptedFileException(const char* message) : BaseMessageException(message)
 			{
 			}
 			

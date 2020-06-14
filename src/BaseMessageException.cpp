@@ -10,7 +10,7 @@ namespace SimpleAudio
 	 *
 	 * @param message - string including exception message
 	 */
-	BaseMessageException::BaseMessageException(const std::string message) : 
+	BaseMessageException::BaseMessageException(const char* message) : 
 		std::exception(),
 		_message(message)
 	{
@@ -53,6 +53,6 @@ namespace SimpleAudio
 	 */
 	const char* BaseMessageException::what(void) const throw()
 	{
-		return this->_message.c_str();
+		return this->_message;
 	}
 }

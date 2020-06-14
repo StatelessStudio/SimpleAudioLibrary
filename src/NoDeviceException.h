@@ -19,7 +19,7 @@ namespace SimpleAudio
 			 *
 			 * @param message - string including exception message
 			 */
-			NoDeviceException(const std::string message) : BaseMessageException(message)
+			NoDeviceException(const char* message) : BaseMessageException(message)
 			{
 			}
 			
