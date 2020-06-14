@@ -113,19 +113,7 @@ namespace SimpleAudio
 			alSourceStop(this->_source);
 		}
 	}
-	
-	/**
-	 * Rewinds current play position to the beginning.
-	 */
-	void Source::rewind(void)
-	{
-		if (this->_state != SourceState::REWIND) {
-			this->_state = SourceState::REWIND;
-			
-			alSourceStop(this->_source);
-		}
-	}
-	
+
 	/**
 	 * Assigns position to this audio entity.
 	 *

@@ -69,12 +69,7 @@ namespace SimpleAudio
 			 * Stops playing its content of this audio entity.
 			 */
 			void stop(void);
-			
-			/**
-			 * Rewinds current play position to the beginning.
-			 */
-			void rewind(void);
-			
+
 			/**
 			 * Assigns position to this audio entity.
 			 *

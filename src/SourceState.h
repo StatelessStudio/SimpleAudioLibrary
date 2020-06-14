@@ -24,12 +24,7 @@ enum SourceState
 	/**
 	 * Audio entity pauses playing its audio data.
 	 */
-	PAUSE = 2,
-	
-	/**
-	 * Audio entity rewinds current play postion to the beginning.
-	 */
-	REWIND = 3
+	PAUSE = 2
 };
 
 } // namespace SimpleAudio
