@@ -4,36 +4,38 @@
 
 namespace SimpleAudio
 {
+
+/**
+ * Invalid Path Exception
+ */
+class InvalidPathException : public BaseMessageException
+{
+public:
+
 	/**
-	 * Invalid Path Exception
+	 * InvalidPathException
+	 *
+	 * @param message Exception message
 	 */
-	class InvalidPathException : public BaseMessageException
+	InvalidPathException(const char* message) : BaseMessageException(message)
 	{
-		public:
+	}
 
-			/**
-			 * InvalidPathException
-			 *
-			 * @param message Exception message
-			 */
-			InvalidPathException(const char* message) : BaseMessageException(message)
-			{
-			}
+	/**
+	 * Create new instance by copying another instance
+	 *
+	 * @param src Reference to the other instance
+	 */
+	InvalidPathException(const InvalidPathException &src) : BaseMessageException(src)
+	{
+	}
 
-			/**
-			 * Create new instance by copying another instance
-			 *
-			 * @param src Reference to the other instance
-			 */
-			InvalidPathException(const InvalidPathException &src) : BaseMessageException(src)
-			{
-			}
+	/**
+	 * Teardown
+	 */
+	virtual ~InvalidPathException(void) throw()
+	{
+	}
+};
 
-			/**
-			 * Teardown
-			 */
-			virtual ~InvalidPathException(void) throw()
-			{
-			}
-	};
-}
+} // namespace SimpleAudio

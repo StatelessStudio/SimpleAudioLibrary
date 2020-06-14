@@ -4,36 +4,38 @@
 
 namespace SimpleAudio
 {
+
+/**
+ * No Device Exception Class.
+ */
+class NoDeviceException : public BaseMessageException
+{
+public:
+
 	/**
-	 * No Device Exception Class.
+	 * NoDeviceException
+	 *
+	 * @param message Exception message
 	 */
-	class NoDeviceException : public BaseMessageException
+	NoDeviceException(const char* message) : BaseMessageException(message)
 	{
-		public:
+	}
 
-			/**
-			 * NoDeviceException
-			 *
-			 * @param message Exception message
-			 */
-			NoDeviceException(const char* message) : BaseMessageException(message)
-			{
-			}
+	/**
+	 * Create new instance by copying another instance
+	 *
+	 * @param src Reference to the other instance
+	 */
+	NoDeviceException(const NoDeviceException &src) : BaseMessageException(src)
+	{
+	}
 
-			/**
-			 * Create new instance by copying another instance
-			 *
-			 * @param src Reference to the other instance
-			 */
-			NoDeviceException(const NoDeviceException &src) : BaseMessageException(src)
-			{
-			}
+	/**
+	 * Teardown
+	 */
+	virtual ~NoDeviceException(void) throw()
+	{
+	}
+};
 
-			/**
-			 * Teardown
-			 */
-			virtual ~NoDeviceException(void) throw()
-			{
-			}
-	};
-}
+} // namespace SimpleAudio
