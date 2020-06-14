@@ -10,7 +10,7 @@ class Sound
 {
 private:
 	/**
-	 * Stores current buffer id of this entity.
+	 * Buffer ID
 	 */
 	unsigned int _buffer;
 
@@ -21,26 +21,26 @@ public:
 	const char* name;
 
 	/**
-	 * Creates new instance of this class.
+	 * Sound
 	 */
 	Sound();
 
 	/**
-	 * Creates new named instance of this class.
+	 * Sound w/ name
 	 * 
 	 * @param n Name of the sound
 	 */
 	Sound(const char *n);
 	
 	/**
-	 * Creates new instance by copying another instance of this class.
+	 * Create new instance by copying another instance
 	 *
-	 * @param src - reference to the other instance of this class
+	 * @param src Reference to the other instance
 	 */
 	Sound(const Sound &src);
 	
 	/**
-	 * Releases this instance of this class.
+	 * Teardown
 	 */
 	~Sound(void);
 
@@ -52,9 +52,9 @@ public:
 	unsigned int getBuffer();
 
 	/**
- 	 * Creates this Sound's buffer from a .wav file
+ 	 * Create this Sound's buffer from a .wav file
 	 *
-	 * @param path - including path to the audio file
+	 * @param path Filepath to the wavefile
 	 * @throws InvalidPathException 	- in case that given path parameter is empty
 	 * @throws CorruptedFileException	- in case that the audio file couldn't be opened
 	 */

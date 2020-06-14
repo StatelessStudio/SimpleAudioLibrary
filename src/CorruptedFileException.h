@@ -2,38 +2,35 @@
 
 #include "BaseMessageException.h"
 
-/**
- * Simple Audio Library Namespace.
- */
 namespace SimpleAudio
 {
 	/**
-	 * Corrupted File Exception Class.
+	 * Corrupted File Exception
 	 */
 	class CorruptedFileException : public BaseMessageException
 	{
 		public:
 		
 			/**
-			 * Creates new instance of this class.
+			 * CorruptedFileException
 			 *
-			 * @param message - string including exception message
+			 * @param message Exception message
 			 */
 			CorruptedFileException(const char* message) : BaseMessageException(message)
 			{
 			}
 			
 			/**
-			 * Creates new instance by copying another instance of this class.
+			 * Create new instance by copying another instance
 			 *
-			 * @param src - reference to the other instance of this class
+			 * @param src Reference to the other instance
 			 */
 			CorruptedFileException(const CorruptedFileException &src) : BaseMessageException(src)
 			{
 			}
 			
 			/**
-			 * Releases this instance of this class.
+			 * Teardown
 			 */
 			virtual ~CorruptedFileException(void) throw()
 			{

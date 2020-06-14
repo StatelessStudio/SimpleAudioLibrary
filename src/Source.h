@@ -2,13 +2,14 @@
 
 #include "SourceState.h"
 
-/**
- * Simple Audio Library Namespace.
- */
 namespace SimpleAudio
 {	
 	/**
-	 * Audio Entity Class.
+	 * Source
+	 * 
+	 * A source is a "player" that has a position (and possibly velocity) where
+	 * 	the sound comes from. It can also have a pitch and gain that is applied
+	 * 	to all sounds that it plays
 	 */
 	class Source
 	{
@@ -19,105 +20,105 @@ namespace SimpleAudio
 			const char* name;
 
 			/**
-			 * Creates new instance of this class.
+			 * Source
 			 */
 			Source();
 
 			/**
-			 * Creates new instance of this class.
+			 * Source w/ name
 			 * 
 			 * @param n Source name
 			 */
 			Source(const char* n);
 
 			/**
-			 * Creates new instance by copying another instance of this class.
+			 * Create new instance by copying another instance
 			 *
-			 * @param src - reference to the other instance of this class
+			 * @param src Reference to the other instance
 			 */
 			Source(const Source &src);
 			
 			/**
-			 * Releases this instance of this class.
+			 * Teardown
 			 */
 			~Source(void);
 
 			/**
-			 * Assigns data by another instance of this class.
+			 * Assign data from another instance
 			 *
-			 * @param src - reference to the other instance of this class
-			 * @return reference to this instance of this class
+			 * @param src Reference to the other instance
+			 * @return Reference to this instance
 			 */
 			Source& operator = (Source &src);
 			
 			/**
-			 * Starts playing its content of this audio entity.
+	 		 * Play a sound from this source
 			 *
-			 * @param buffer - Sound buffer to play
-			 * @param loop - true if this content should be running in a loop otherwise false
+			 * @param buffer Sound buffer to play
+			 * @param loop (Optional) Set to true to loop the sound
 			 */
 			void play(unsigned int buffer, const bool loop=false);
 			
 			/**
-			 * Pauses playing its content of this audio entity.
+			 * Pause sounds from this source
 			 */
 			void pause(void);
 			
 			/**
-			 * Stops playing its content of this audio entity.
+			 * Stop sounds from this source
 			 */
 			void stop(void);
 
 			/**
-			 * Assigns position to this audio entity.
+			 * Set the source position
 			 *
-			 * @param x - value on the x-axis of audio entity position
-			 * @param y - value on the y-axis of audio entity position
-			 * @param z - value on the z-axis of audio entity position
+			 * @param x X Coordinate
+			 * @param y Y Coordinate
+			 * @param z Z Coordinate
 			 */
 			void setPosition(const float x, const float y, const float z);
 			
 			/**
-			 * Assigns vector of its direction this autio entity is heading.
+			 * Set the direction the source is facing
 			 *
-			 * @param x - value on the x-axis of audio entity direction
-			 * @param y - value on the y-axis of audio entity direction
-			 * @param z - value on the z-axis of audio entity direction
+			 * @param x Direction on the x-axis the source is facing
+			 * @param y Direction on the y-axis the source is facing
+			 * @param z Direction on the z-axis the source is facing
 			 */
 			void setDirection(const float x, const float y, const float z);
 			
 			/**
-			 * Assigns velocity vector to this audio entity.
+			 * Set the source's velocity
 			 *
-			 * @param x - value on the x-axis of audio entity velocity
-			 * @param y - value on the y-axis of audio entity velocity
-			 * @param z - value on the z-axis of audio entity velocity
+			 * @param x Velocity along the x-axis
+			 * @param y Velocity along the y-axis
+			 * @param z Velocity along the z-axis
 			 */
 			void setVelocity(const float x, const float y, const float z);
 			
 			/**
-			 * Assigns pitch value to this audio entity.
+			 * Set the source's pitch
 			 *
-			 * @param pitch - new pitch value
+			 * @param pitch New pitch (1 is unchanged)
 			 */
 			void setPitch(const float pitch);
 			
 			/**
-			 * Assigns gain value to this audio entity.
+			 * Set the source's gain
 			 *
-			 * @param gain - new gain value
+			 * @param gain New gain (1 is unchanged)
 			 */
 			void setGain(const float gain);
 			
 		private:
 			
 			/**
-			 * Stores current source id of this entity.
+			 * Source ID
 			 */
 			unsigned int _source;
 			
 			/**
-			 * Stores current state of this entity.
+			 * Current state
 			 */
 			SourceState _state;
 	};

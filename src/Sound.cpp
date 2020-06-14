@@ -11,9 +11,6 @@
 namespace SimpleAudio
 {
 
-/**
- * Creates new instance of this class.
- */
 Sound::Sound() :
 	_buffer(0),
 	name("")
@@ -23,9 +20,6 @@ Sound::Sound() :
 #endif
 }
 
-/**
- * Creates new instance of this class.
- */
 Sound::Sound(const char* n) :
 	_buffer(0),
 	name(n)
@@ -35,17 +29,11 @@ Sound::Sound(const char* n) :
 #endif
 }
 
-/**
- * Creates new instance by copying another instance of this class.
- */
 Sound::Sound(const Sound &src) :
 	_buffer(src._buffer)
 {
 }
 
-/**
- * Releases this instance of this class.
- */
 Sound::~Sound(void)
 {
 #if _DEBUG
@@ -54,17 +42,11 @@ Sound::~Sound(void)
 	alDeleteBuffers(1, &this->_buffer);
 }
 
-/**
- * Get the buffer ID
- */
 unsigned int Sound::getBuffer()
 {
 	return _buffer;
 }
 
-/**
- * Creates this Sound's buffer from a .wav file
- */
 void Sound::loadWaveFile(const char* path) const throw(InvalidPathException, CorruptedFileException)
 {	
 	if (!strlen(path)) {

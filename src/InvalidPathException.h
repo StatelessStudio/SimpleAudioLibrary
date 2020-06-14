@@ -2,38 +2,35 @@
 
 #include "BaseMessageException.h"
 
-/**
- * Simple Audio Library Namespace.
- */
 namespace SimpleAudio
 {
 	/**
-	 * No Device Exception Class.
+	 * Invalid Path Exception
 	 */
 	class InvalidPathException : public BaseMessageException
 	{
 		public:
 			
 			/**
-			 * Creates new instance of this class.
+			 * InvalidPathException
 			 *
-			 * @param message - string including exception message
+			 * @param message Exception message
 			 */
 			InvalidPathException(const char* message) : BaseMessageException(message)
 			{
 			}
 			
 			/**
-			 * Creates new instance by copying another instance of this class.
+			 * Create new instance by copying another instance
 			 *
-			 * @param src - reference to the other instance of this class
+			 * @param src Reference to the other instance
 			 */
 			InvalidPathException(const InvalidPathException &src) : BaseMessageException(src)
 			{
 			}
 			
 			/**
-			 * Releases this instance of this class.
+			 * Teardown
 			 */
 			virtual ~InvalidPathException(void) throw()
 			{

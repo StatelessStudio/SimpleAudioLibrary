@@ -1,28 +1,27 @@
 #pragma once
 
-/**
- * Simple Audio Library Namespace.
- */
 namespace SimpleAudio
 {
 
 /**
- * Audio Entity State List.
+ * Source States
  */
 enum SourceState
 {
 	/**
-	 * Audio entity stops playing.
+	 * Source is stopped
 	 */
 	STOP = 0,
 	
 	/**
-	 * Audio entity plays its audio data.
+	 * Source is starting
+	 * @note The source may continue to play after the play state is reverted,
+	 * 	depending on the length of the sound
 	 */
 	PLAY = 1,
 	
 	/**
-	 * Audio entity pauses playing its audio data.
+	 * Source is paused
 	 */
 	PAUSE = 2
 };

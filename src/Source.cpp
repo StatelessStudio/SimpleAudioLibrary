@@ -5,14 +5,8 @@
 #include <iostream>
 #endif
 
-/**
- * Simple Audio Library Namespace.
- */
 namespace SimpleAudio
 {
-	/**
-	 * Creates new instance of this class.
-	 */
 	Source::Source() :
 		_source(0),
 		_state(SourceState::STOP),
@@ -24,9 +18,6 @@ namespace SimpleAudio
 		alGenSources(1, &this->_source);
 	}
 
-	/**
-	 * Creates new instance of this class.
-	 */
 	Source::Source(const char* n) :
 		_source(0),
 		_state(SourceState::STOP),
@@ -38,20 +29,12 @@ namespace SimpleAudio
 		alGenSources(1, &this->_source);
 	}
 
-	/**
-	 * Creates new instance by copying another instance of this class.
-	 *
-	 * @param src - reference to the other instance of this class
-	 */
 	Source::Source(const Source &src) :
 		_source(src._source),
 		_state(SourceState::STOP)
 	{
 	}
 
-	/**
-	 * Releases this instance of this class.
-	 */
 	Source::~Source(void)
 	{
 #if _DEBUG
@@ -60,23 +43,11 @@ namespace SimpleAudio
 		alDeleteSources(1, &this->_source);
 	}
 
-	/**
-	 * Assigns data by another instance of this class.
-	 *
-	 * @param src - reference to the other instance of this class
-	 * @return reference to this instance of this class
-	 */
 	Source& Source::operator = (Source &src)
 	{
 		return *this;
 	}
-	
-	/**
-	 * Starts playing its content of this audio entity.
-	 *
-	 * @param buffer - Sound buffer to play
-	 * @param loop - true if this content should be running in a loop otherwise false
-	 */
+
 	void Source::play(unsigned int buffer, const bool loop)
 	{
 		if (this->_state != SourceState::PLAY) {
@@ -89,10 +60,7 @@ namespace SimpleAudio
 			this->_state = SourceState::STOP;
 		}
 	}
-	
-	/**
-	 * Pauses playing its content of this audio entity.
-	 */
+
 	void Source::pause(void)
 	{
 		if (this->_state != SourceState::PAUSE) {
@@ -101,10 +69,7 @@ namespace SimpleAudio
 			alSourcePause(this->_source);
 		}
 	}
-	
-	/**
-	 * Stops playing its content of this audio entity.
-	 */
+
 	void Source::stop(void)
 	{
 		if (this->_state != SourceState::STOP) {
@@ -114,59 +79,28 @@ namespace SimpleAudio
 		}
 	}
 
-	/**
-	 * Assigns position to this audio entity.
-	 *
-	 * @param x - value on the x-axis of audio entity position
-	 * @param y - value on the y-axis of audio entity position
-	 * @param z - value on the z-axis of audio entity position
-	 */
 	void Source::setPosition(const float x, const float y, const float z)
 	{
 		alSource3f(this->_source, AL_POSITION, x, y, z);
 	}
-	
-	/**
-	 * Assigns vector of its direction this autio entity is heading.
-	 *
-	 * @param x - value on the x-axis of audio entity direction
-	 * @param y - value on the y-axis of audio entity direction
-	 * @param z - value on the z-axis of audio entity direction
-	 */
+
 	void Source::setDirection(const float x, const float y, const float z)
 	{
 		float direction[3] = {x, y, z};
 		
 		alSourcefv(this->_source, AL_DIRECTION, direction);
 	}
-	
-	/**
-	 * Assigns velocity vector to this audio entity.
-	 *
-	 * @param x - value on the x-axis of audio entity velocity
-	 * @param y - value on the y-axis of audio entity velocity
-	 * @param z - value on the z-axis of audio entity velocity
-	 */
+
 	void Source::setVelocity(const float x, const float y, const float z)
 	{
 		alSource3f(this->_source, AL_VELOCITY, x, y, z);
 	}
-	
-	/**
-	 * Assigns pitch value to this audio entity.
-	 *
-	 * @param pitch - new pitch value
-	 */
+
 	void Source::setPitch(const float pitch)
 	{
 		alSourcef(this->_source, AL_PITCH, pitch);
 	}
-	
-	/**
-	 * Assigns gain value to this audio entity.
-	 *
-	 * @param gain - new gain value
-	 */
+
 	void Source::setGain(const float gain)
 	{
 		alSourcef(this->_source, AL_GAIN, gain);

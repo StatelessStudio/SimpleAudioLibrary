@@ -2,9 +2,6 @@
 
 #include "BaseMessageException.h"
 
-/**
- * Simple Audio Library Namespace.
- */
 namespace SimpleAudio
 {
 	/**
@@ -15,25 +12,25 @@ namespace SimpleAudio
 		public:
 			
 			/**
-			 * Creates new instance of this class.
+			 * NoContextException
 			 *
-			 * @param message - string including exception message
+			 * @param message Exception message
 			 */
 			NoContextException(const char* message) : BaseMessageException(message)
 			{
 			}
 			
 			/**
-			 * Creates new instance by copying another instance of this class.
+			 * Create new instance by copying another instance
 			 *
-			 * @param src - reference to the other instance of this class
+			 * @param src Reference to the other instance
 			 */
 			NoContextException(const NoContextException &src) : BaseMessageException(src)
 			{
 			}
 			
 			/**
-			 * Releases this instance of this class.
+			 * Teardown
 			 */
 			virtual ~NoContextException(void) throw()
 			{

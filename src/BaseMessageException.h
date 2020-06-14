@@ -2,56 +2,53 @@
 
 #include <exception>
 
-/**
- * Simple Audio Library Namespace.
- */
 namespace SimpleAudio
 {
 	/**
-	 * Base Message Exception Class.
+	 * Base Exception
 	 */
 	class BaseMessageException : public std::exception
 	{
 		public:
 			
 			/**
-			 * Creates new instance of this class.
+			 * BaseMessageException
 			 *
-			 * @param message - string including exception message
+			 * @param message Exception message
 			 */
 			BaseMessageException(const char* message);
 			
 			/**
-			 * Creates new instance by copying another instance of this class.
+			 * Create new instance by copying another instance
 			 *
-			 * @param src - reference to the other instance of this class
+			 * @param src Reference to the other instance
 			 */
 			BaseMessageException(const BaseMessageException &src);
 			
 			/**
-			 * Releases this instance of this class.
+			 * Teardown
 			 */
 			virtual ~BaseMessageException(void) throw();
 			
 			/**
-			 * Assigns data by another instance of this class.
+			 * Assign data from another instance
 			 *
-			 * @param src - reference to the other instance of this class
-			 * @return reference to this instance of this class
+			 * @param src Reference to the other instance
+			 * @return Reference to this instance
 			 */
 			BaseMessageException& operator = (const BaseMessageException &src);
 			
 			/**
-			 * Returns exception message.
+			 * Get the exception message
 			 *
-			 * @return string including exception message
+			 * @return Returns exception message
 			 */
 			virtual const char* what(void) const throw();
 			
 		private:
-		
+
 			/**
-			 * Stores exception message.
+			 * Exception message
 			 */
 			const char* _message;
 	};

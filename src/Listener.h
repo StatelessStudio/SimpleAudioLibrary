@@ -7,9 +7,6 @@
 #include <AL/al.h>
 #include <AL/alc.h>
 
-/**
- * Simple Audio Library Namespace.
- */
 namespace SimpleAudio
 {
 	/**
@@ -21,73 +18,73 @@ namespace SimpleAudio
 			/**
 			 * Initilizes this system with the default audio device.
 			 *
-			 * @throws NoDeviceException - in case that no device is available
+			 * @throws NoDeviceException in case that no device is available
 			 */
 			void initWithDefaultDevice(void) throw(NoDeviceException, NoContextException);
 
 			/**
-			 * Assigns position to listener.
+			 * Set the listener's position
 			 *
-			 * @param x - value on the x-axis of listener position
-			 * @param y - value on the y-axis of listener position
-			 * @param z - value on the z-axis of listener position
+			 * @param x X Coordinate
+			 * @param y Y Coordinate
+			 * @param z Z Coordinate
 			 */
 			void setPosition(const float x, const float y, const float z);
 			
 			/**
-			 * Assigns orientation to listener.
+			 * Set the listener's orientation
 			 *
-			 * @param atX - value on the x-axis of listener points at
-			 * @param atY - value on the y-axis of listener points at
-			 * @param atZ - value on the z-axis of listener points at
-			 * @param upX - value on the x-axis of listener up vector
-			 * @param upY - value on the y-axis of listener up vector
-			 * @param upZ - value on the z-axis of listener up vector
+			 * @param atX X Coordinate to look at
+			 * @param atY Y Coordinate to look at
+			 * @param atZ Z Coordinate to look at
+			 * @param upX X Coordinate of up vector
+			 * @param upY Y Coordinate of up vector
+			 * @param upZ Z Coordinate of up vector
 			 */
 			void setOrientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ);
 			
 			/**
-			 * Assigns velocity to listener.
+			 * Set the listener's velocity
 			 *
-			 * @param x - value on the x-axis of listener velocity
-			 * @param y - value on the y-axis of listener velocity
-			 * @param z - value on the z-axis of listener velocity
+			 * @param x Velocity along the x-axis
+			 * @param y Velocity along the y-axis
+			 * @param z Velocity along the z-axis
 			 */
 			void setVelocity(const float x, const float y, const float z);
 
 			/**
-			 * Creates new instance of this class.
+			 * Listener
 			 */
 			Listener(void);
 			
 			/**
-			 * Creates new instance by copying another instance of this class.
+			 * Create new instance by copying another instance
 			 *
-			 * @param src - reference to the other instance of this class
+			 * @param src Reference to the other instance
 			 */
 			Listener(const Listener &src);
 			
 			/**
-			 * Releases this instance of this class.
+			 * Teardown
 			 */
 			~Listener(void);
 			
 			/**
-			 * Assigns data by another instance of this class.
+			 * Assign data from another instance
 			 *
-			 * @param src - reference to the other instance of this class
-			 * @return reference to this instance of this class
+			 * @param src Reference to the other instance
+			 * @return Reference to this instance
 			 */
 			Listener& operator = (const Listener &src);	
 			
 		private:			
 			/**
-			 * Stores selected audio device of this system.
+			 * Active audio device
 			 */
 			ALCdevice* _device;
 			
 			/**
-			 * Stores active context of this system 
+			 * Active context
 			 */
 			ALCcontext* _context;
 	};
