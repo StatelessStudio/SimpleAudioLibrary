@@ -1,6 +1,10 @@
 #include "Source.h"
 #include <AL.h>
 
+#ifdef _DEBUG
+#include <iostream>
+#endif
+
 /**
  * Simple Audio Library Namespace.
  */
@@ -11,8 +15,26 @@ namespace SimpleAudioLib
 	 */
 	Source::Source() :
 		_source(0),
-		_state(STATE_STOP)
+		_state(STATE_STOP),
+		name("")
 	{
+#if _DEBUG
+	std::cout << "[Source][Noname] Initializing..." << std::endl;
+#endif
+		alGenSources(1, &this->_source);
+	}
+
+	/**
+	 * Creates new instance of this class.
+	 */
+	Source::Source(const char* n) :
+		_source(0),
+		_state(STATE_STOP),
+		name(n)
+	{
+#if _DEBUG
+	std::cout << "[Source][" << name << "] Initializing..." << std::endl;
+#endif
 		alGenSources(1, &this->_source);
 	}
 
@@ -32,6 +54,9 @@ namespace SimpleAudioLib
 	 */
 	Source::~Source(void)
 	{
+#if _DEBUG
+	std::cout << "[Source][" << name << "] Teardown..." << std::endl;
+#endif
 	}
 
 	/**
@@ -163,6 +188,9 @@ namespace SimpleAudioLib
 	 */
 	void Source::release(void)
 	{
+#if _DEBUG
+		std::cout << "[Source][" << name << "] Release..." << std::endl;
+#endif
 		alDeleteSources(1, &this->_source);
 	}
 }

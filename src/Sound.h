@@ -19,9 +19,21 @@ private:
 
 public:
 	/**
+	 * Sound name
+	 */
+	const char* name;
+
+	/**
 	 * Creates new instance of this class.
 	 */
 	Sound();
+
+	/**
+	 * Creates new named instance of this class.
+	 * 
+	 * @param n Name of the sound
+	 */
+	Sound(const char *n);
 	
 	/**
 	 * Creates new instance by copying another instance of this class.

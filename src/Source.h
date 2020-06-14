@@ -41,9 +41,21 @@ namespace SimpleAudioLib
 	{
 		public:
 			/**
+			 * Source name
+			 */
+			const char* name;
+
+			/**
 			 * Creates new instance of this class.
 			 */
 			Source();
+
+			/**
+			 * Creates new instance of this class.
+			 * 
+			 * @param n Source name
+			 */
+			Source(const char* n);
 
 			/**
 			 * Creates new instance by copying another instance of this class.

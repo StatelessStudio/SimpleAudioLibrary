@@ -15,8 +15,24 @@ namespace SimpleAudioLib
  * Creates new instance of this class.
  */
 Sound::Sound() :
-	_buffer(0)
+	_buffer(0),
+	name("")
 {
+#if _DEBUG
+	std::cout << "[Sound][Noname] Initializing..." << std::endl;
+#endif
+}
+
+/**
+ * Creates new instance of this class.
+ */
+Sound::Sound(const char* n) :
+	_buffer(0),
+	name(n)
+{
+#if _DEBUG
+	std::cout << "[Sound][" << name << "] Initializing..." << std::endl;
+#endif
 }
 
 /**
@@ -32,6 +48,9 @@ Sound::Sound(const Sound &src) :
  */
 Sound::~Sound(void)
 {
+#if _DEBUG
+	std::cout << "[Sound][" << name << "] Teardown..." << std::endl;
+#endif
 }
 
 /**
@@ -39,6 +58,9 @@ Sound::~Sound(void)
  */
 void Sound::release()
 {
+#if _DEBUG
+		std::cout << "[Sound][" << name << "] Release..." << std::endl;
+#endif
 	alDeleteBuffers(1, &this->_buffer);
 }
 

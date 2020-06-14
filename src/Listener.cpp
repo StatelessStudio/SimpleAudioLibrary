@@ -1,6 +1,10 @@
 #include "Listener.h"
 #include <stdlib.h>
 
+#if _DEBUG
+#include <iostream>
+#endif
+
 /**
  * Simple Audio Library Namespace.
  */
@@ -20,6 +24,9 @@ namespace SimpleAudioLib
 		_device(NULL),
 		_context(NULL)
 	{
+#if _DEBUG
+		std::cout << "[Listener] Initializing..." << std::endl;
+#endif
 	}
 	
 	/**
@@ -38,6 +45,9 @@ namespace SimpleAudioLib
 	 */
 	Listener::~Listener(void)
 	{
+#if _DEBUG
+		std::cout << "[Listener] Teardown..." << std::endl;
+#endif
 	}
 	
 	/**
@@ -76,6 +86,9 @@ namespace SimpleAudioLib
 	 */
 	void Listener::release(void)
 	{
+#if _DEBUG
+		std::cout << "[Listener] Release..." << std::endl;
+#endif
 		if (_instance != NULL) {
 			_instance->_release();
 			
