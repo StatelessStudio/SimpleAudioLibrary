@@ -10,27 +10,27 @@ namespace SimpleAudioLib
 	/**
 	 * Audio Entity State List.
 	 */
-	enum ESourceState
+	enum SourceState
 	{
 		/**
 		 * Audio entity stops playing.
 		 */
-		STATE_STOP = 0,
+		STOP = 0,
 		
 		/**
 		 * Audio entity plays its audio data.
 		 */
-		STATE_PLAY = 1,
+		PLAY = 1,
 		
 		/**
 		 * Audio entity pauses playing its audio data.
 		 */
-		STATE_PAUSE = 2,
+		PAUSE = 2,
 		
 		/**
 		 * Audio entity rewinds current play postion to the beginning.
 		 */
-		STATE_REWIND = 3
+		REWIND = 3
 	};
 	
 	/**
@@ -150,6 +150,6 @@ namespace SimpleAudioLib
 			/**
 			 * Stores current state of this entity.
 			 */
-			ESourceState _state;
+			SourceState _state;
 	};
 }

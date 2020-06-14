@@ -15,7 +15,7 @@ namespace SimpleAudioLib
 	 */
 	Source::Source() :
 		_source(0),
-		_state(STATE_STOP),
+		_state(SourceState::STOP),
 		name("")
 	{
 #if _DEBUG
@@ -29,7 +29,7 @@ namespace SimpleAudioLib
 	 */
 	Source::Source(const char* n) :
 		_source(0),
-		_state(STATE_STOP),
+		_state(SourceState::STOP),
 		name(n)
 	{
 #if _DEBUG
@@ -45,7 +45,7 @@ namespace SimpleAudioLib
 	 */
 	Source::Source(const Source &src) :
 		_source(src._source),
-		_state(STATE_STOP)
+		_state(SourceState::STOP)
 	{
 	}
 
@@ -79,14 +79,14 @@ namespace SimpleAudioLib
 	 */
 	void Source::play(unsigned int buffer, const bool loop)
 	{
-		if (this->_state != STATE_PLAY) {
-			this->_state = STATE_PLAY;
+		if (this->_state != SourceState::PLAY) {
+			this->_state = SourceState::PLAY;
 			alSourcei(this->_source, AL_BUFFER, buffer);
 			
 			alSourcei(this->_source, AL_LOOPING, loop);
 			alSourcePlay(this->_source);
 
-			this->_state = STATE_STOP;
+			this->_state = SourceState::STOP;
 		}
 	}
 	
@@ -95,8 +95,8 @@ namespace SimpleAudioLib
 	 */
 	void Source::pause(void)
 	{
-		if (this->_state != STATE_PAUSE) {
-			this->_state = STATE_PAUSE;
+		if (this->_state != SourceState::PAUSE) {
+			this->_state = SourceState::PAUSE;
 			
 			alSourcePause(this->_source);
 		}
@@ -107,8 +107,8 @@ namespace SimpleAudioLib
 	 */
 	void Source::stop(void)
 	{
-		if (this->_state != STATE_STOP) {
-			this->_state = STATE_STOP;
+		if (this->_state != SourceState::STOP) {
+			this->_state = SourceState::STOP;
 			
 			alSourceStop(this->_source);
 		}
@@ -119,8 +119,8 @@ namespace SimpleAudioLib
 	 */
 	void Source::rewind(void)
 	{
-		if (this->_state != STATE_REWIND) {
-			this->_state = STATE_REWIND;
+		if (this->_state != SourceState::REWIND) {
+			this->_state = SourceState::REWIND;
 			
 			alSourceStop(this->_source);
 		}
