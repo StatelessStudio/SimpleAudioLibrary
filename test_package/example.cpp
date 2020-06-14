@@ -1,10 +1,10 @@
-#include <SimpleAudioLibrary/Listener.h>
-#include <SimpleAudioLibrary/CorruptedFileException.h>
-#include <SimpleAudioLibrary/InvalidPathException.h>
-#include <SimpleAudioLibrary/NoContextException.h>
-#include <SimpleAudioLibrary/NoDeviceException.h>
-#include <SimpleAudioLibrary/Source.h>
-#include <SimpleAudioLibrary/Sound.h>
+#include <SimpleAudio/Listener.h>
+#include <SimpleAudio/CorruptedFileException.h>
+#include <SimpleAudio/InvalidPathException.h>
+#include <SimpleAudio/NoContextException.h>
+#include <SimpleAudio/NoDeviceException.h>
+#include <SimpleAudio/Source.h>
+#include <SimpleAudio/Sound.h>
 
 #include <iostream>
 
