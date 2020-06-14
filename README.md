@@ -55,9 +55,7 @@ And install!
 
 ### Create a listener (observer)
 
-Create a listener to "hear" the sound, and to register a device to hear with.
-
-**NOTE - As of v1.0.0, you can create multiple listeners, but only if you know what you're doing! Most applications will only need a single listener!**
+Create a listener to "hear" the sound, and to register a device to hear with:
 
 ```cpp
 SimpleAudio::Listener listener;
@@ -65,6 +63,8 @@ listener.initWithDefaultDevice();
 listener.setPosition(0, 0, 0);
 listener.setVelocity(0, 0, 0);
 ```
+
+As of v1.0.0, you can create multiple listeners, but only if you know what you're doing! Most applications will only need a single listener.
 
 ### Load a sound file
 
