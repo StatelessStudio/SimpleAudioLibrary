@@ -12,18 +12,18 @@ int main()
 {
     try {
         // before you can use this library, you have to initialize it
-        SimpleAudioLib::Listener listener;
+        SimpleAudio::Listener listener;
 
         listener.initWithDefaultDevice();
         listener.setPosition(0, 0, 0);
         listener.setVelocity(0, 0, 0);
 
         // load audio file in wave format
-        SimpleAudioLib::Sound wow;
+        SimpleAudio::Sound wow;
         wow.loadWaveFile("../../../../resources/wow.wav");
 
         // Create entity
-        SimpleAudioLib::Source ent;
+        SimpleAudio::Source ent;
 
         std::cout << "Success!" << std::endl;
         std::cout << "q to quit" << std::endl;
@@ -51,16 +51,16 @@ int main()
             std::cin >> input;
         }
     }
-    catch (SimpleAudioLib::InvalidPathException ex) {
+    catch (SimpleAudio::InvalidPathException ex) {
         std::cout << "[ERROR] (Invalid Path) " << ex.what() << std::endl;
     }
-    catch (SimpleAudioLib::CorruptedFileException ex) {
+    catch (SimpleAudio::CorruptedFileException ex) {
         std::cout << "[ERROR] (Corrupted File) " << ex.what() << std::endl;
     }
-    catch (SimpleAudioLib::NoContextException ex) {
+    catch (SimpleAudio::NoContextException ex) {
         std::cout << "[ERROR] (No Context) " << ex.what() << std::endl;
     }
-    catch (SimpleAudioLib::NoDeviceException ex) {
+    catch (SimpleAudio::NoDeviceException ex) {
         std::cout << "[ERROR] (No Device) " << ex.what() << std::endl;
     }
     catch (std::exception ex) {

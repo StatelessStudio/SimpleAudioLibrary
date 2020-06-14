@@ -13,7 +13,7 @@
 /**
  * Simple Audio Library Namespace.
  */
-namespace SimpleAudioLib
+namespace SimpleAudio
 {
 	/**
 	 * Simple Audio System Class.

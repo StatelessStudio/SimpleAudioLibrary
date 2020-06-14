@@ -6,7 +6,7 @@
 
 #include <string>
 
-namespace SimpleAudioLib
+namespace SimpleAudio
 {
 
 class Sound
@@ -64,4 +64,4 @@ public:
 	void loadWaveFile(const std::string path) const throw(InvalidPathException, CorruptedFileException);
 };
 
-} // namespace SimpleAudioLib
+} // namespace SimpleAudio

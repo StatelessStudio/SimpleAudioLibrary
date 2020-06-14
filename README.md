@@ -64,12 +64,12 @@ int main()
 {
     try {
         // before you can use this library, you have to initialize it
-        SimpleAudioLib::Listener& system = SimpleAudioLib::Listener::getInstance();
+        SimpleAudio::Listener& system = SimpleAudio::Listener::getInstance();
 
         system.initWithDefaultDevice();
 
         // load audio file in wave format
-        SimpleAudioLib::Source* sound = system.createSourceFromFile("../resources/test.wav");
+        SimpleAudio::Source* sound = system.createSourceFromFile("../resources/test.wav");
 
         std::cout << "Success!" << std::endl;
         std::cout << "q to quit" << std::endl;
@@ -90,19 +90,19 @@ int main()
         delete sound;
         sound = NULL;
 
-        SimpleAudioLib::Listener::release();
+        SimpleAudio::Listener::release();
 
     }
-    catch (SimpleAudioLib::InvalidPathException ex) {
+    catch (SimpleAudio::InvalidPathException ex) {
         std::cout << "[ERROR] (Invalid Path) " << ex.what() << std::endl;
     }
-    catch (SimpleAudioLib::CorruptedFileException ex) {
+    catch (SimpleAudio::CorruptedFileException ex) {
         std::cout << "[ERROR] (Corrupted File) " << ex.what() << std::endl;
     }
-    catch (SimpleAudioLib::NoContextException ex) {
+    catch (SimpleAudio::NoContextException ex) {
         std::cout << "[ERROR] (No Context) " << ex.what() << std::endl;
     }
-    catch (SimpleAudioLib::NoDeviceException ex) {
+    catch (SimpleAudio::NoDeviceException ex) {
         std::cout << "[ERROR] (No Device) " << ex.what() << std::endl;
     }
     catch (std::exception ex) {

@@ -3,7 +3,7 @@
 /**
  * Simple Audio Library Namespace.
  */
-namespace SimpleAudioLib
+namespace SimpleAudio
 {
 	/**
 	 * Creates new instance of this class.

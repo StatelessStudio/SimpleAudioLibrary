@@ -5,7 +5,7 @@
 /**
  * Simple Audio Library Namespace.
  */
-namespace SimpleAudioLib
+namespace SimpleAudio
 {
 	/**
 	 * Corrupted File Exception Class.

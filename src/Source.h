@@ -7,7 +7,7 @@
 /**
  * Simple Audio Library Namespace.
  */
-namespace SimpleAudioLib
+namespace SimpleAudio
 {	
 	/**
 	 * Audio Entity Class.

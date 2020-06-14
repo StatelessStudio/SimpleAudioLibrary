@@ -6,7 +6,7 @@
 /**
  * Simple Audio Library Namespace.
  */
-namespace SimpleAudioLib
+namespace SimpleAudio
 {
 	/**
 	 * Base Message Exception Class.

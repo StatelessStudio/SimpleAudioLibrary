@@ -5,7 +5,7 @@
 /**
  * Simple Audio Library Namespace.
  */
-namespace SimpleAudioLib
+namespace SimpleAudio
 {
 	/**
 	 * No Device Exception Class.

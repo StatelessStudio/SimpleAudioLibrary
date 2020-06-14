@@ -3,7 +3,7 @@
 /**
  * Simple Audio Library Namespace.
  */
-namespace SimpleAudioLib
+namespace SimpleAudio
 {
 
 /**
@@ -32,4 +32,4 @@ enum SourceState
 	REWIND = 3
 };
 
-} // namespace SimpleAudioLib
+} // namespace SimpleAudio

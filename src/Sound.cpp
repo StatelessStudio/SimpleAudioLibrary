@@ -8,7 +8,7 @@
 
 #include <AL/al.h>
 
-namespace SimpleAudioLib
+namespace SimpleAudio
 {
 
 /**
@@ -179,4 +179,4 @@ void Sound::loadWaveFile(const std::string path) const throw(InvalidPathExceptio
 	file.close();
 }
 
-} // namespace SimpleAudioLib
+} // namespace SimpleAudio
