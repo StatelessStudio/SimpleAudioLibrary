@@ -10,7 +10,7 @@ namespace SimpleAudio
 	class CorruptedFileException : public BaseMessageException
 	{
 		public:
-		
+
 			/**
 			 * CorruptedFileException
 			 *
@@ -19,7 +19,7 @@ namespace SimpleAudio
 			CorruptedFileException(const char* message) : BaseMessageException(message)
 			{
 			}
-			
+
 			/**
 			 * Create new instance by copying another instance
 			 *
@@ -28,7 +28,7 @@ namespace SimpleAudio
 			CorruptedFileException(const CorruptedFileException &src) : BaseMessageException(src)
 			{
 			}
-			
+
 			/**
 			 * Teardown
 			 */

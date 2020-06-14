@@ -48,43 +48,43 @@ unsigned int Sound::getBuffer()
 }
 
 void Sound::loadWaveFile(const char* path) const throw(InvalidPathException, CorruptedFileException)
-{	
+{
 	if (!strlen(path)) {
 		throw InvalidPathException("Load wave file failure: no path to file defined!");
 	}
-	
+
 	std::ifstream file(path, std::ifstream::binary);
-	
+
 	if (!file.is_open()) {
 		throw CorruptedFileException("Load wave file failure: file couldn't be opened!");
 	} else {
 		char chunkId[5] 	= "\0";
 		unsigned int size 	= 0;
-	
+
 		// read header
 		file.read(chunkId, 4);
 		file.read((char*)&size, 4);
-	
+
 		chunkId[4] = '\0';
-#ifdef _DEBUG		
+#ifdef _DEBUG
 		std::cout << "Chunk ID: " << chunkId << std::endl;
 		std::cout << "Size: " << size << "bytes" << std::endl;
-#endif		
+#endif
 		file.read(chunkId, 4);
-	
+
 		chunkId[4] = '\0';
-#ifdef _DEBUG			
+#ifdef _DEBUG
 		std::cout << "Wave ID: " << chunkId << std::endl;
-#endif		
+#endif
 		// read first chunk header
 		file.read(chunkId, 4);
 		file.read((char*)&size, 4);
-	
+
 		chunkId[4] = '\0';
-#ifdef _DEBUG			
+#ifdef _DEBUG
 		std::cout << "Chunk ID: " << chunkId << std::endl;
 		std::cout << "Size: " << size << "bytes" << std::endl;
-#endif		
+#endif
 		// read first chunk content
 		short formatTag 		= 0;
 		short channels 			= 0;
@@ -92,36 +92,36 @@ void Sound::loadWaveFile(const char* path) const throw(InvalidPathException, Cor
 		int averageBytesPerSec 	= 0;
 		short blockAlign 		= 0;
 		short bitsPerSample 	= 0;
-	
+
 		file.read((char*)&formatTag, 2);
 		file.read((char*)&channels, 2);
 		file.read((char*)&samplesPerSec, 4);
 		file.read((char*)&averageBytesPerSec, 4);
 		file.read((char*)&blockAlign, 2);
 		file.read((char*)&bitsPerSample, 2);
-		
+
 		if (size > 16) {
 			file.seekg((int)file.tellg() + (size - 16));
 		}
-		
-#ifdef _DEBUG			
+
+#ifdef _DEBUG
 		switch (formatTag) {
 			case 0x0001: {
 				std::cout << "PCM Format" << std::endl;
 			} break;
-		
+
 			case 0x0003: {
 				std::cout << "IEEE Float Format" << std::endl;
 			} break;
-		
+
 			case 0x0006: {
 				std::cout << "8-bit ITU-T G.711 A-law Format" << std::endl;
 			} break;
-		
+
 			case 0x0007: {
 				std::cout << "8-bit ITU-T G.711 mi-law Format" << std::endl;
 			} break;
-		
+
 			default: {
 				std::cout << "Unknown format tag" << std::endl;
 			} break;
@@ -132,19 +132,19 @@ void Sound::loadWaveFile(const char* path) const throw(InvalidPathException, Cor
 		std::cout << "average bytes per second: " << averageBytesPerSec << std::endl;
 		std::cout << "Block align: " << blockAlign << std::endl;
 		std::cout << "bit per sample: " << bitsPerSample << std::endl;
-#endif		
+#endif
 		// read data chunk header
 		file.read(chunkId, 4);
 		file.read((char*)&size, 4);
-	
+
 		chunkId[4] = '\0';
-		
-#ifdef _DEBUG			
+
+#ifdef _DEBUG
 		std::cout << "Chunk ID: " << chunkId << std::endl;
 		std::cout << "Size: " << size << "bytes" << std::endl;
-#endif		
+#endif
 		unsigned char* data = new unsigned char[size];
-	
+
 		file.read((char*)data, size);
 
 		alGenBuffers(1, const_cast<ALuint*>(&this->_buffer));
@@ -152,12 +152,12 @@ void Sound::loadWaveFile(const char* path) const throw(InvalidPathException, Cor
 
 		delete[] data;
 		data = NULL;
-		
+
 #ifdef _DEBUG
 		std::cout << "--- Done\n" << std::endl;
-#endif			
+#endif
 	}
-	
+
 	file.close();
 }
 

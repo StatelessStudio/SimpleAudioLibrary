@@ -30,7 +30,7 @@ namespace SimpleAudio
 			 * @param z Z Coordinate
 			 */
 			void setPosition(const float x, const float y, const float z);
-			
+
 			/**
 			 * Set the listener's orientation
 			 *
@@ -42,7 +42,7 @@ namespace SimpleAudio
 			 * @param upZ Z Coordinate of up vector
 			 */
 			void setOrientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ);
-			
+
 			/**
 			 * Set the listener's velocity
 			 *
@@ -56,33 +56,33 @@ namespace SimpleAudio
 			 * Listener
 			 */
 			Listener(void);
-			
+
 			/**
 			 * Create new instance by copying another instance
 			 *
 			 * @param src Reference to the other instance
 			 */
 			Listener(const Listener &src);
-			
+
 			/**
 			 * Teardown
 			 */
 			~Listener(void);
-			
+
 			/**
 			 * Assign data from another instance
 			 *
 			 * @param src Reference to the other instance
 			 * @return Reference to this instance
 			 */
-			Listener& operator = (const Listener &src);	
-			
-		private:			
+			Listener& operator = (const Listener &src);
+
+		private:
 			/**
 			 * Active audio device
 			 */
 			ALCdevice* _device;
-			
+
 			/**
 			 * Active context
 			 */

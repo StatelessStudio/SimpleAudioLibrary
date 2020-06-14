@@ -10,7 +10,7 @@ namespace SimpleAudio
 	class NoContextException : public BaseMessageException
 	{
 		public:
-			
+
 			/**
 			 * NoContextException
 			 *
@@ -19,7 +19,7 @@ namespace SimpleAudio
 			NoContextException(const char* message) : BaseMessageException(message)
 			{
 			}
-			
+
 			/**
 			 * Create new instance by copying another instance
 			 *
@@ -28,7 +28,7 @@ namespace SimpleAudio
 			NoContextException(const NoContextException &src) : BaseMessageException(src)
 			{
 			}
-			
+
 			/**
 			 * Teardown
 			 */

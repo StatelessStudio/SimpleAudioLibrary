@@ -3,7 +3,7 @@
 #include "SourceState.h"
 
 namespace SimpleAudio
-{	
+{
 	/**
 	 * Source
 	 * 
@@ -37,7 +37,7 @@ namespace SimpleAudio
 			 * @param src Reference to the other instance
 			 */
 			Source(const Source &src);
-			
+
 			/**
 			 * Teardown
 			 */
@@ -50,7 +50,7 @@ namespace SimpleAudio
 			 * @return Reference to this instance
 			 */
 			Source& operator = (Source &src);
-			
+
 			/**
 	 		 * Play a sound from this source
 			 *
@@ -58,12 +58,12 @@ namespace SimpleAudio
 			 * @param loop (Optional) Set to true to loop the sound
 			 */
 			void play(unsigned int buffer, const bool loop=false);
-			
+
 			/**
 			 * Pause sounds from this source
 			 */
 			void pause(void);
-			
+
 			/**
 			 * Stop sounds from this source
 			 */
@@ -77,7 +77,7 @@ namespace SimpleAudio
 			 * @param z Z Coordinate
 			 */
 			void setPosition(const float x, const float y, const float z);
-			
+
 			/**
 			 * Set the direction the source is facing
 			 *
@@ -86,7 +86,7 @@ namespace SimpleAudio
 			 * @param z Direction on the z-axis the source is facing
 			 */
 			void setDirection(const float x, const float y, const float z);
-			
+
 			/**
 			 * Set the source's velocity
 			 *
@@ -95,28 +95,28 @@ namespace SimpleAudio
 			 * @param z Velocity along the z-axis
 			 */
 			void setVelocity(const float x, const float y, const float z);
-			
+
 			/**
 			 * Set the source's pitch
 			 *
 			 * @param pitch New pitch (1 is unchanged)
 			 */
 			void setPitch(const float pitch);
-			
+
 			/**
 			 * Set the source's gain
 			 *
 			 * @param gain New gain (1 is unchanged)
 			 */
 			void setGain(const float gain);
-			
+
 		private:
-			
+
 			/**
 			 * Source ID
 			 */
 			unsigned int _source;
-			
+
 			/**
 			 * Current state
 			 */

@@ -10,7 +10,7 @@ namespace SimpleAudio
 	class InvalidPathException : public BaseMessageException
 	{
 		public:
-			
+
 			/**
 			 * InvalidPathException
 			 *
@@ -19,7 +19,7 @@ namespace SimpleAudio
 			InvalidPathException(const char* message) : BaseMessageException(message)
 			{
 			}
-			
+
 			/**
 			 * Create new instance by copying another instance
 			 *
@@ -28,7 +28,7 @@ namespace SimpleAudio
 			InvalidPathException(const InvalidPathException &src) : BaseMessageException(src)
 			{
 			}
-			
+
 			/**
 			 * Teardown
 			 */

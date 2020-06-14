@@ -53,7 +53,7 @@ namespace SimpleAudio
 		if (this->_state != SourceState::PLAY) {
 			this->_state = SourceState::PLAY;
 			alSourcei(this->_source, AL_BUFFER, buffer);
-			
+
 			alSourcei(this->_source, AL_LOOPING, loop);
 			alSourcePlay(this->_source);
 
@@ -65,7 +65,7 @@ namespace SimpleAudio
 	{
 		if (this->_state != SourceState::PAUSE) {
 			this->_state = SourceState::PAUSE;
-			
+
 			alSourcePause(this->_source);
 		}
 	}
@@ -74,7 +74,7 @@ namespace SimpleAudio
 	{
 		if (this->_state != SourceState::STOP) {
 			this->_state = SourceState::STOP;
-			
+
 			alSourceStop(this->_source);
 		}
 	}
@@ -87,7 +87,7 @@ namespace SimpleAudio
 	void Source::setDirection(const float x, const float y, const float z)
 	{
 		float direction[3] = {x, y, z};
-		
+
 		alSourcefv(this->_source, AL_DIRECTION, direction);
 	}
 

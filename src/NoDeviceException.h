@@ -10,7 +10,7 @@ namespace SimpleAudio
 	class NoDeviceException : public BaseMessageException
 	{
 		public:
-			
+
 			/**
 			 * NoDeviceException
 			 *
@@ -19,7 +19,7 @@ namespace SimpleAudio
 			NoDeviceException(const char* message) : BaseMessageException(message)
 			{
 			}
-			
+
 			/**
 			 * Create new instance by copying another instance
 			 *
@@ -28,7 +28,7 @@ namespace SimpleAudio
 			NoDeviceException(const NoDeviceException &src) : BaseMessageException(src)
 			{
 			}
-			
+
 			/**
 			 * Teardown
 			 */

@@ -20,7 +20,7 @@ namespace SimpleAudio
 	BaseMessageException& BaseMessageException::operator = (const BaseMessageException &src)
 	{
 		this->_message = src._message;
-		
+
 		return *this;
 	}
 

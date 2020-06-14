@@ -31,14 +31,14 @@ public:
 	 * @param n Name of the sound
 	 */
 	Sound(const char *n);
-	
+
 	/**
 	 * Create new instance by copying another instance
 	 *
 	 * @param src Reference to the other instance
 	 */
 	Sound(const Sound &src);
-	
+
 	/**
 	 * Teardown
 	 */
