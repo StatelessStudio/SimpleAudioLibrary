@@ -65,13 +65,13 @@ unsigned int Sound::getBuffer()
 /**
  * Creates this Sound's buffer from a .wav file
  */
-void Sound::loadWaveFile(const std::string path) const throw(InvalidPathException, CorruptedFileException)
+void Sound::loadWaveFile(const char* path) const throw(InvalidPathException, CorruptedFileException)
 {	
-	if (path.empty()) {
+	if (!strlen(path)) {
 		throw InvalidPathException("Load wave file failure: no path to file defined!");
 	}
 	
-	std::ifstream file(path.c_str(), std::ifstream::binary);
+	std::ifstream file(path, std::ifstream::binary);
 	
 	if (!file.is_open()) {
 		throw CorruptedFileException("Load wave file failure: file couldn't be opened!");

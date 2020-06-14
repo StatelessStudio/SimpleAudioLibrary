@@ -3,9 +3,6 @@
 #include <AL/AL.h>
 #include "CorruptedFileException.h"
 #include "InvalidPathException.h"
-
-#include <string>
-
 namespace SimpleAudio
 {
 
@@ -57,11 +54,11 @@ public:
 	/**
  	 * Creates this Sound's buffer from a .wav file
 	 *
-	 * @param path - string including path to the audio file
+	 * @param path - including path to the audio file
 	 * @throws InvalidPathException 	- in case that given path parameter is empty
 	 * @throws CorruptedFileException	- in case that the audio file couldn't be opened
 	 */
-	void loadWaveFile(const std::string path) const throw(InvalidPathException, CorruptedFileException);
+	void loadWaveFile(const char* path) const throw(InvalidPathException, CorruptedFileException);
 };
 
 } // namespace SimpleAudio
