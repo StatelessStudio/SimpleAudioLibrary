@@ -1,6 +1,6 @@
 #pragma once
 
-#include "BaseMessageException.h"
+#include "BaseException.h"
 
 namespace SimpleAudio
 {
@@ -8,7 +8,7 @@ namespace SimpleAudio
 /**
  * Corrupted File Exception
  */
-class CorruptedFileException : public BaseMessageException
+class CorruptedFileException : public BaseException
 {
 public:
 
@@ -17,7 +17,7 @@ public:
 	 *
 	 * @param message Exception message
 	 */
-	CorruptedFileException(const char* message) : BaseMessageException(message)
+	CorruptedFileException(const char* message) : BaseException(message)
 	{
 	}
 
@@ -26,7 +26,7 @@ public:
 	 *
 	 * @param src Reference to the other instance
 	 */
-	CorruptedFileException(const CorruptedFileException &src) : BaseMessageException(src)
+	CorruptedFileException(const CorruptedFileException &src) : BaseException(src)
 	{
 	}
 

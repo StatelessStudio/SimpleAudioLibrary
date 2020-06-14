@@ -8,28 +8,28 @@ namespace SimpleAudio
 /**
  * Base Exception
  */
-class BaseMessageException : public std::exception
+class BaseException : public std::exception
 {
 public:
 
 	/**
-	 * BaseMessageException
+	 * BaseException
 	 *
 	 * @param message Exception message
 	 */
-	BaseMessageException(const char* message);
+	BaseException(const char* message);
 
 	/**
 	 * Create new instance by copying another instance
 	 *
 	 * @param src Reference to the other instance
 	 */
-	BaseMessageException(const BaseMessageException &src);
+	BaseException(const BaseException &src);
 
 	/**
 	 * Teardown
 	 */
-	virtual ~BaseMessageException(void) throw();
+	virtual ~BaseException(void) throw();
 
 	/**
 	 * Assign data from another instance
@@ -37,7 +37,7 @@ public:
 	 * @param src Reference to the other instance
 	 * @return Reference to this instance
 	 */
-	BaseMessageException& operator = (const BaseMessageException &src);
+	BaseException& operator = (const BaseException &src);
 
 	/**
 	 * Get the exception message

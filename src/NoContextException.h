@@ -1,6 +1,6 @@
 #pragma once
 
-#include "BaseMessageException.h"
+#include "BaseException.h"
 
 namespace SimpleAudio
 {
@@ -8,7 +8,7 @@ namespace SimpleAudio
 /**
  * No Device Exception Class.
  */
-class NoContextException : public BaseMessageException
+class NoContextException : public BaseException
 {
 public:
 
@@ -17,7 +17,7 @@ public:
 	 *
 	 * @param message Exception message
 	 */
-	NoContextException(const char* message) : BaseMessageException(message)
+	NoContextException(const char* message) : BaseException(message)
 	{
 	}
 
@@ -26,7 +26,7 @@ public:
 	 *
 	 * @param src Reference to the other instance
 	 */
-	NoContextException(const NoContextException &src) : BaseMessageException(src)
+	NoContextException(const NoContextException &src) : BaseException(src)
 	{
 	}
 

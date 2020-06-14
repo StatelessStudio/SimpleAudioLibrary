@@ -1,31 +1,31 @@
-#include "BaseMessageException.h"
+#include "BaseException.h"
 
 namespace SimpleAudio
 {
 
-BaseMessageException::BaseMessageException(const char* message) : 
+BaseException::BaseException(const char* message) : 
 	std::exception(),
 	_message(message)
 {
 }
 
-BaseMessageException::BaseMessageException(const BaseMessageException &src) :
+BaseException::BaseException(const BaseException &src) :
 	_message(src._message)
 {
 }
 
-BaseMessageException::~BaseMessageException(void) throw()
+BaseException::~BaseException(void) throw()
 {
 }
 
-BaseMessageException& BaseMessageException::operator = (const BaseMessageException &src)
+BaseException& BaseException::operator = (const BaseException &src)
 {
 	this->_message = src._message;
 
 	return *this;
 }
 
-const char* BaseMessageException::what(void) const throw()
+const char* BaseException::what(void) const throw()
 {
 	return this->_message;
 }

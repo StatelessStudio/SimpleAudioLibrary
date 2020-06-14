@@ -1,6 +1,6 @@
 #pragma once
 
-#include "BaseMessageException.h"
+#include "BaseException.h"
 
 namespace SimpleAudio
 {
@@ -8,7 +8,7 @@ namespace SimpleAudio
 /**
  * Invalid Path Exception
  */
-class InvalidPathException : public BaseMessageException
+class InvalidPathException : public BaseException
 {
 public:
 
@@ -17,7 +17,7 @@ public:
 	 *
 	 * @param message Exception message
 	 */
-	InvalidPathException(const char* message) : BaseMessageException(message)
+	InvalidPathException(const char* message) : BaseException(message)
 	{
 	}
 
@@ -26,7 +26,7 @@ public:
 	 *
 	 * @param src Reference to the other instance
 	 */
-	InvalidPathException(const InvalidPathException &src) : BaseMessageException(src)
+	InvalidPathException(const InvalidPathException &src) : BaseException(src)
 	{
 	}
 
