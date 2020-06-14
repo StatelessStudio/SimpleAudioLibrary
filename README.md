@@ -1,6 +1,6 @@
 # Simple Audio Library
 
-This is a simple audio library using OpenAL. It was made with the thought in mind to have a pretty simple tool for playing sound/music in a game or another multimedia application.
+This is a simple audio library using OpenAL. It was built as a simple tool for playing sound/music in a game or another multimedia application.
 
 ## Installation
 
@@ -51,64 +51,43 @@ And install!
 
 ## Usage
 
+[See the example](https://github.com/StatelessStudio/SimpleAudioLibrary/test_package/example.cpp)
+
+### Create a listener (observer)
+
+Create a listener to "hear" the sound, and to register a device to hear with.
+
+**NOTE - As of v1.0.0, you can create multiple listeners, but only if you know what you're doing! Most applications will only need a single listener!**
+
 ```cpp
-#include <Listener.h>
-#include <CorruptedFileException.h>
-#include <InvalidPathException.h>
-#include <NoContextException.h>
-#include <NoDeviceException.h>
+SimpleAudio::Listener listener;
+listener.initWithDefaultDevice();
+listener.setPosition(0, 0, 0);
+listener.setVelocity(0, 0, 0);
+```
 
-#include <iostream>
+### Load a sound file
 
-int main()
-{
-    try {
-        // before you can use this library, you have to initialize it
-        SimpleAudio::Listener& system = SimpleAudio::Listener::getInstance();
+Load a wave file into a `Sound`:
 
-        system.initWithDefaultDevice();
+```cpp
+SimpleAudio::Sound ouch;
+ouch.loadWaveFile("../resources/ouch.wav");
+```
 
-        // load audio file in wave format
-        SimpleAudio::Source* sound = system.createSourceFromFile("../resources/test.wav");
+### Create a source to play the sound
 
-        std::cout << "Success!" << std::endl;
-        std::cout << "q to quit" << std::endl;
+In addition to loading a sound, you'll also need somewhere to play it:
 
-        sound->setPitch(0.5);
+```cpp
+SimpleAudio::Source player;
+player.setPosition(1, 0, 0);
+```
 
-        float input = 0.5;
-        while (input != 'q') {
-            std::cin >> input;
+### Play the sound!
 
-            sound->setPitch(input);
-            
-            // play sound
-            sound->play();
-        }
-
-        // clean up
-        delete sound;
-        sound = NULL;
-
-        SimpleAudio::Listener::release();
-
-    }
-    catch (SimpleAudio::InvalidPathException ex) {
-        std::cout << "[ERROR] (Invalid Path) " << ex.what() << std::endl;
-    }
-    catch (SimpleAudio::CorruptedFileException ex) {
-        std::cout << "[ERROR] (Corrupted File) " << ex.what() << std::endl;
-    }
-    catch (SimpleAudio::NoContextException ex) {
-        std::cout << "[ERROR] (No Context) " << ex.what() << std::endl;
-    }
-    catch (SimpleAudio::NoDeviceException ex) {
-        std::cout << "[ERROR] (No Device) " << ex.what() << std::endl;
-    }
-    catch (std::exception ex) {
-        std::cout << "[ERROR] " << ex.what() << std::endl;
-    }
-}
+```cpp
+player.play(ouch.getBuffer());
 ```
 
 ## Documentation
@@ -119,4 +98,4 @@ Build the docs:
 doxygen
 ```
 
-You'll see the docs folder, find `index.html`
+You'll see the docs folder appear, find and open `index.html`.
