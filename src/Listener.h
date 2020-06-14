@@ -7,9 +7,6 @@
 #include <AL/al.h>
 #include <AL/alc.h>
 
-#define SIMPLE_AUDIO_LIB_VERSION "0.2.0"
-#define SIMPLE_AUDIO_LIB_VERSION_0_2_0 1
-
 /**
  * Simple Audio Library Namespace.
  */
