@@ -18,30 +18,10 @@ namespace SimpleAudioLib
 {
 	/**
 	 * Simple Audio System Class.
-	 *
-	 * @note This class is implemented as singleton.
 	 */
 	class Listener
 	{
 		public:
-			/**
-			 * Returns only existing instance of this class.
-			 *
-			 * In case that the instance doesn't exist yet, 
-			 * this method will create one.
-			 *
-			 * @note This is part of the Singleton-Pattern.
-			 * @return reference to the only existing instance of this class.
-			 */
-			static Listener& getInstance(void);
-			
-			/**
-			 * Releases memory of this instance.
-			 *
-			 * @note This is part of the Singleton-Pattern.
-			 */
-			static void release(void);
-			
 			/**
 			 * Initilizes this system with the default audio device.
 			 *
@@ -78,8 +58,7 @@ namespace SimpleAudioLib
 			 * @param z - value on the z-axis of listener velocity
 			 */
 			void setVelocity(const float x, const float y, const float z);
-			
-		private:
+
 			/**
 			 * Creates new instance of this class.
 			 */
@@ -105,19 +84,7 @@ namespace SimpleAudioLib
 			 */
 			Listener& operator = (const Listener &src);	
 			
-			/**
-			 * Releases reserved memory of this module.
-			 */
-			void _release(void);
-			
-		private:
-			/**
-			 * Stores the only instance of this class.
-			 *
-			 * @note This is part of the Singleton-Pattern.
-			 */
-			static Listener* _instance;
-			
+		private:			
 			/**
 			 * Stores selected audio device of this system.
 			 */

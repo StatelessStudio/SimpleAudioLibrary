@@ -57,6 +57,7 @@ namespace SimpleAudioLib
 #if _DEBUG
 	std::cout << "[Source][" << name << "] Teardown..." << std::endl;
 #endif
+		alDeleteSources(1, &this->_source);
 	}
 
 	/**
@@ -181,16 +182,5 @@ namespace SimpleAudioLib
 	void Source::setGain(const float gain)
 	{
 		alSourcef(this->_source, AL_GAIN, gain);
-	}
-	
-	/**
-	 * Releases all reserved memory.
-	 */
-	void Source::release(void)
-	{
-#if _DEBUG
-		std::cout << "[Source][" << name << "] Release..." << std::endl;
-#endif
-		alDeleteSources(1, &this->_source);
 	}
 }

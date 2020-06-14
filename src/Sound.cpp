@@ -51,16 +51,6 @@ Sound::~Sound(void)
 #if _DEBUG
 	std::cout << "[Sound][" << name << "] Teardown..." << std::endl;
 #endif
-}
-
-/**
- * Releases all reserved memory.
- */
-void Sound::release()
-{
-#if _DEBUG
-		std::cout << "[Sound][" << name << "] Release..." << std::endl;
-#endif
 	alDeleteBuffers(1, &this->_buffer);
 }
 

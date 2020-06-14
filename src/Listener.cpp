@@ -9,14 +9,7 @@
  * Simple Audio Library Namespace.
  */
 namespace SimpleAudioLib
-{
-	/**
-	 * Stores the only instance of this class.
-	 *
-	 * @note This is part of the Singleton-Pattern.
-	 */
-	Listener* Listener::_instance = NULL;
-	
+{	
 	/**
 	 * Creates new instance of this class.
 	 */
@@ -28,7 +21,7 @@ namespace SimpleAudioLib
 		std::cout << "[Listener] Initializing..." << std::endl;
 #endif
 	}
-	
+
 	/**
 	 * Creates new instance by copying another instance of this class.
 	 *
@@ -48,8 +41,16 @@ namespace SimpleAudioLib
 #if _DEBUG
 		std::cout << "[Listener] Teardown..." << std::endl;
 #endif
+		if (this->_context != NULL) {
+			alcMakeContextCurrent(NULL);
+			alcDestroyContext(this->_context);
+		}
+		
+		if (this->_device != NULL) {
+			alcCloseDevice(this->_device);
+		}
 	}
-	
+
 	/**
 	 * Assigns data by another instance of this class.
 	 *
@@ -59,57 +60,6 @@ namespace SimpleAudioLib
 	Listener& Listener::operator = (const Listener &src)
 	{
 		return *this;
-	}
-	
-	/**
-	 * Returns only existing instance of this class.
-	 *
-	 * In case that the instance doesn't exist yet, 
-	 * this method will create one.
-	 *
-	 * @note This is part of the Singleton-Pattern.
-	 * @return Listener - reference to the only existing instance of this class.
-	 */
-	Listener& Listener::getInstance(void)
-	{
-		if(_instance == NULL){
-			_instance = new Listener();
-		}
-		
-		return *_instance;
-	}
-	
-	/**
-	 * Releases memory of this instance.
-	 *
-	 * @note This is part of the Singleton-Pattern.
-	 */
-	void Listener::release(void)
-	{
-#if _DEBUG
-		std::cout << "[Listener] Release..." << std::endl;
-#endif
-		if (_instance != NULL) {
-			_instance->_release();
-			
-			delete _instance;
-			_instance = NULL;
-		}
-	}
-	
-	/**
-	 * Releases reserved memory of this module.
-	 */
-	void Listener::_release(void)
-	{
-		if (this->_context != NULL) {
-			alcMakeContextCurrent(NULL);
-			alcDestroyContext(this->_context);
-		}
-		
-		if (this->_device != NULL) {
-			alcCloseDevice(this->_device);
-		}
 	}
 
 	/**

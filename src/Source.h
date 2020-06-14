@@ -67,7 +67,7 @@ namespace SimpleAudioLib
 			/**
 			 * Releases this instance of this class.
 			 */
-			virtual ~Source(void);
+			~Source(void);
 
 			/**
 			 * Assigns data by another instance of this class.
@@ -99,11 +99,6 @@ namespace SimpleAudioLib
 			 * Rewinds current play position to the beginning.
 			 */
 			void rewind(void);
-			
-			/**
-			 * Releases all reserved memory.
-			 */
-			void release(void);
 			
 			/**
 			 * Assigns position to this audio entity.

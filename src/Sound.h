@@ -45,14 +45,7 @@ public:
 	/**
 	 * Releases this instance of this class.
 	 */
-	virtual ~Sound(void);
-	
-	/**
-	 * Releases memory of this instance.
-	 *
-	 * @note This is part of the Singleton-Pattern.
-	 */
-	void release(void);
+	~Sound(void);
 
 	/**
 	 * Get the buffer ID

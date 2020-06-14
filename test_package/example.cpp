@@ -12,7 +12,7 @@ int main()
 {
     try {
         // before you can use this library, you have to initialize it
-        SimpleAudioLib::Listener& listener = SimpleAudioLib::Listener::getInstance();
+        SimpleAudioLib::Listener listener;
 
         listener.initWithDefaultDevice();
         listener.setPosition(0, 0, 0);
@@ -50,9 +50,6 @@ int main()
             std::cout << "q? " << std::flush;
             std::cin >> input;
         }
-
-        SimpleAudioLib::Listener::release();
-
     }
     catch (SimpleAudioLib::InvalidPathException ex) {
         std::cout << "[ERROR] (Invalid Path) " << ex.what() << std::endl;
