@@ -2,8 +2,6 @@
 
 #include "SourceState.h"
 
-#include <string>
-
 /**
  * Simple Audio Library Namespace.
  */

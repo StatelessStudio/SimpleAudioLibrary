@@ -1,5 +1,4 @@
 #include "Listener.h"
-#include <stdlib.h>
 
 #if _DEBUG
 #include <iostream>
